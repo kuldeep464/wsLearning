@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let weight=Number(prompt("Enter your weight in Kilograms(kg)"))
+    let height=Number(prompt("Enter your height in Meters(m)"))
+    let heightSqr=height**2;
+    let bmi=weight/heightSqr
+    if(height<=0 || weight<=0){
+        console.log("Invalid Data- please check carefully")
+    }
+    else if(bmi>=40){
+        console.log("Severe Obesity")
+    }
+    else if (bmi>=30){
+        console.log("Obesity")
+    }
+    else if(bmi>=25){
+        console.log("Overweight")
+    }
+    else if (bmi>=18.5){
+        console.log ("Normal Weight")
+    }
+    else{
+        console.log("UnderWeight")
+    }
+</script>
+</html>

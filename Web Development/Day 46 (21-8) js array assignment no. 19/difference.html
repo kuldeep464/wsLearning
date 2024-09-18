@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let l1=[1,2,3,4,5]
+    let l2=[3,4,5,6,7]
+    let differenceArray=[]
+    for(let v of l1){
+        if(!l2.includes(v)){
+            differenceArray.push(v)
+        }
+    }
+    for(let v of l2){
+        if(! l1.includes(v)){
+            differenceArray.push(v)
+        }
+    }
+    console.log(differenceArray)
+</script>
+</html>

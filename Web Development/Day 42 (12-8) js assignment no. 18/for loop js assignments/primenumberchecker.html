@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let uc=Number(prompt("Enter any number to check that is prime or not:--"))
+    let primecheck=false
+    for(let n=2;n<uc;n++){
+        if(uc%n==0){
+           primecheck=true
+           console.log(n)
+        }
+    }
+
+    if(primecheck==true){
+        document.write(uc, " is not a prime number")
+    }
+    else{
+        document.write(uc, " is prime number")
+    }
+</script>
+</html>

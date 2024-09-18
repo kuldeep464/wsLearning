@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: sans-serif;
+            color: white;
+        }
+        .main{
+            width: 500px;
+            position: fixed;
+            left: 50%;
+            transition: 0.5s;
+            top: -500px;
+            transform: translate(-50%,-50%);
+        }
+        .main img{
+            width: 100%;
+        }
+        .main span{
+            background-color: white;
+            position: absolute;
+            right: 0px;
+            cursor: pointer;
+            font-size: 35px;
+        }
+
+        .modelShow{
+            top: 50%;
+        }
+
+        body{
+            background-color: rgb(37, 37, 50);
+            height: 100vh;
+           
+        }
+        h1{
+            text-align: center;
+            padding-top: 100px;
+        }
+        .counDown{
+            display: flex;
+            width: 800px;
+            gap: 20px;
+            margin:100px auto;
+        }
+        .counDownItems{
+           flex-grow: 1;
+           padding: 30px 0px;
+           text-align: center;
+           box-shadow: 0px 0px 10px 2px #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>counDown</h1>
+    <div class="counDown">
+        <div class="counDownItems">
+            <h3>Day</h3>
+            <span>04</span>
+        </div>
+        <div class="counDownItems">
+            <h3>hour</h3>
+            <span>16</span>
+        </div>
+        <div class="counDownItems">
+            <h3>Min</h3>
+            <span>16</span>
+        </div>
+        <div class="counDownItems">
+            <h3>Second</h3>
+            <span>16</span>
+        </div>
+    </div>
+
+        <!-- <div class="main">
+            <span>&times</span>
+            <img src="https://www.wscubetech.com/_next/image?url=https%3A%2F%2Fd2kr1rbctelohj.cloudfront.net%2Fuploads%2Fimages%2Fcourses%2Fpop-up%2Fda-cohort-2-1.webp&w=640&q=75" alt="">
+        </div>
+        <button onclick="stopInterval()">Stop</button> -->
+</body>
+<script>
+   
+    // console.log(oneMin)
+    // console.log(oneHour)
+    // console.log(oneDay)
+
+
+    // let allSecond=300000;
+
+
+
+
+    // let c=0;
+
+    // let countData=()=>{
+    //     c++;
+    //     console.log(c)
+    // }
+
+    // countData()
+
+    // let allInterval= setInterval(()=>{
+    //     countData()
+    //     if(c==20){
+    //         clearInterval(allInterval)
+    //     }
+    // },1000)
+
+
+    // let stopInterval=()=>{
+    //     clearInterval(allInterval)
+    // }
+
+
+    // let mainDiv=document.querySelector(".main")
+    // let mainDivClose=document.querySelector(".main span")
+    
+    // let showModel=()=>{
+    //    mainDiv.classList.toggle('modelShow')
+    // }
+
+    // mainDivClose.addEventListener("click",showModel)
+    // setTimeout(showModel,3000)
+let allSpan=document.querySelectorAll(".counDownItems span")
+
+let counDown=()=>{
+    let currentDate=new Date()
+
+    let counDowndate=new Date("Mon Sep 15 2024 11:59:59 GMT+0530")
+
+    let currentDateMs=currentDate.getTime()
+
+    let counDowndateMs=counDowndate.getTime()
+  
+    let diffMs= counDowndateMs -  currentDateMs
+
+    let finalSecond= Math.floor(diffMs /1000);
+    
+     let oneMin=60;
+    let oneHour=60*oneMin;  //3600
+    let oneDay= oneHour*24 //86400
+   
+    let finalDays= Math.floor(finalSecond / oneDay)  //3,45,600
+    let remSecondafterDays=  finalSecond %  oneDay
+    // console.log(remSecondafterDays)
+                  //58473  / 3600
+    let finalHours= Math.floor(remSecondafterDays / oneHour)
+
+    let remSecondafterHour=  remSecondafterDays%oneHour
+
+    let finalMin= Math.floor(remSecondafterHour /oneMin);
+
+    let finalremSecond= remSecondafterHour % oneMin;
+
+    // console.log(finalDays)
+    // console.log(finalHours)
+    // console.log(finalMin)
+    // console.log(finalremSecond)
+
+    let finalAns=[finalDays,finalHours,finalMin,finalremSecond]
+
+    // allSpan[0].innerHTML= finalAns[0] <10 ? "0"+finalAns[0] : finalAns[0] ; 
+    // allSpan[1].innerHTML=finalAns[1] <10 ? "0"+finalAns[1] : finalAns[1] ;
+    // allSpan[2].innerHTML=finalAns[2] <10 ? "0"+finalAns[2] : finalAns[2] ;
+    // allSpan[3].innerHTML=finalAns[3] <10 ? "0"+finalAns[3] : finalAns[3] ;
+
+
+    allSpan.forEach((spanElement,index)=>{
+        spanElement.innerHTML= finalAns[index] <10 ? "0"+ finalAns[index] : finalAns[index]
+    })
+}
+
+counDown()
+
+setInterval(counDown,1000)
+
+</script>
+</html>

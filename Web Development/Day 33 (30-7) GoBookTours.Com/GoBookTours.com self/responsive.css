@@ -1,0 +1,181 @@
+@media only screen and (min-width:200px) and (max-width:575px) {
+
+
+    header {
+        padding: 10px 0px;
+    }
+
+    .headerMid>figure {
+        flex-basis: 60%;
+    }
+
+    .headerMid>figure img {
+        width: 100%;
+    }
+
+    .headerMid>nav {
+        flex-basis: 5%;
+    }
+
+    .headerMid>nav>ul {
+        display: none;
+    }
+
+    .buttonDiv {
+        display: inline-block;
+    }
+
+    .fixedLogoMid {
+        width: 20px;
+        height: 20px;
+    }
+
+    .searchDiv {
+        flex-direction: column;
+        gap: 20px;
+        height: 600px;
+    }
+
+    .searchImg {
+        background-position: center;
+    }
+
+    .searchImg form {
+        margin-bottom: 10px;
+    }
+
+    .searchRight {
+        padding-top: 100px;
+
+    }
+
+    .searchRight h3 {
+        margin: 0px auto;
+    }
+
+    .searchRight h2 {
+        font-size: 23px;
+    }
+
+    .searchRight p {
+        margin-bottom: 10px;
+    }
+
+    .searchBottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .indiaDestMid {
+        width: 95%;
+        margin: auto;
+    }
+
+
+    .indiaDestMid h1 {
+        font-size: 24px;
+        line-height: 32px;
+        text-align: center;
+    }
+
+    .indiaDestItems{
+        flex-direction: column;
+    }
+
+    .raj{
+        width: 100%;
+        height: 300px;
+    }
+
+    .otherStates{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .otherStates>div{
+        width: 95%;
+        height: 300px;
+    }
+
+}
+
+
+
+@media only screen and (min-width:576px) and (max-width:992px) {
+
+    header {
+        padding: 10px 0px;
+    }
+
+    .headerMid {
+        width: 90%;
+        margin: auto;
+    }
+
+    .headerMid>figure {
+        flex-basis: 40%;
+    }
+
+    .headerMid>figure img {
+        width: 100%;
+    }
+
+    .headerMid>nav {
+        flex-basis: 5%;
+    }
+
+    .headerMid>nav>ul {
+        display: none;
+    }
+
+    .buttonDiv {
+        display: inline-block;
+    }
+
+    .fixedLogoMid {
+        width: 25px;
+        height: 25px;
+    }
+
+    .searchDiv {
+        flex-direction: column;
+        gap: 20px;
+        height: 600px;
+    }
+
+    .searchImg {
+        background-position: center;
+    }
+
+    .searchImg form {
+        margin-bottom: 10px;
+    }
+
+    .searchRight {
+        padding-top: 100px;
+    }
+
+    .searchRight h3 {
+        margin: 0px auto;
+    }
+
+    .searchRight h2 {
+        font-size: 23px;
+    }
+
+    .searchRight p {
+        margin-bottom: 10px;
+    }
+
+    .searchBottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .searchBottomItems {
+        width: 90%;
+    }
+
+
+}

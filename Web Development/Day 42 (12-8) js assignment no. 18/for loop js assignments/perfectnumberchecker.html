@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let uc=Number(prompt("Enter your number to check it is perfect number or not:--"))
+    let check=0
+    for(let n=1;n<uc;n++){
+        if(uc%n==0){
+            check=check+n;
+        }
+    }
+    if(check==uc){
+        document.write(uc, " is a perfect number")
+    }
+    else {
+        document.write(uc, " is not a perfect number")
+    }
+</script>
+</html>

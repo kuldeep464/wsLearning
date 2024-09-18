@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Change</title>
+</head>
+<style>
+    .container {
+        width: 500px;
+        margin: auto;
+        border: 1px solid black;
+        padding: 20px;
+    }
+    .images{
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <img src="images/1.png" alt="" width="500px" height="300px" id="mainimage">
+        <hr>
+        <div class="images">
+            <img src="images/2.png" alt="" width="23%" height="150px" onmouseover="changeimg(this)">
+            <img src="images/3.png" alt="" width="23%" height="150px" onmouseover="changeimg(this)">
+            <img src="images/4.png" alt="" width="23%" height="150px" onmouseover="changeimg(this)">
+            <img src="images/5.png" alt="" width="23%" height="150px" onmouseover="changeimg(this)">
+        </div>
+    </div>
+</body>
+<script>
+    let mainimage=document.querySelector("#mainimage")
+    function changeimg(currentimage){
+        let currentimagesrc=currentimage.src
+        mainimage.src=currentimagesrc
+
+    }
+</script>
+</html>

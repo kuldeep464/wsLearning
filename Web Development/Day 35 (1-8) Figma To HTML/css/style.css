@@ -1,0 +1,950 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+}
+
+
+header {
+    width: 100%;
+    box-shadow: 0px 2px 5px 0px #ccc;
+}
+
+.headerMid {
+    max-width: 1170px;
+    margin: auto;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerMid figure img {
+    width: 152px;
+    height: 55px;
+}
+
+.headerBtns {
+    display: flex;
+    gap: 20px;
+}
+
+.headerwtspbtn {
+    padding: 10px 18px;
+    border: 1px solid #27AE60;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #27AE60;
+    border-radius: 8px;
+}
+
+.headercallbtn {
+    padding: 10px 18px;
+    color: white;
+    background: linear-gradient(#0ACEFE, #2699FB);
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+}
+
+.section {
+    width: 100%;
+}
+
+.formMid {
+    max-width: 1170px;
+    margin: auto;
+    padding: 30px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.formContent {
+    flex-basis: 53%;
+}
+
+.formContent h1 {
+    font-size: 52px;
+    line-height: 68px;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+.formContent h1 span {
+    color: #2699FB;
+    background: url(../images/zigzag.png) no-repeat bottom;
+}
+
+.formContent p {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 35px;
+    padding-bottom: 20px;
+}
+
+.formContent ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formContent ul li i {
+    padding: 4px;
+    background-color: #2699FB;
+    border-radius: 50%;
+}
+
+.formcontentbtns {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.formBookbtn {
+    padding: 16px 48px;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 700;
+    background: linear-gradient(#0ACEFE, #2699FB);
+    color: white;
+    background-color: transparent;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.formdownloadbtn {
+    padding: 16px 28px;
+    border-radius: 8px;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: transparent;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.formSection {
+    flex-basis: 38%;
+    margin-top: 20px;
+}
+
+.formSection fieldset {
+    padding: 40px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0px 0px 2px 2px rgb(236, 236, 236);
+}
+
+.formtop h2 {
+    font-size: 18px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+
+.formtop p {
+    font-size: 12px;
+    font-weight: 400;
+    text-align: start;
+    padding-bottom: 10px;
+}
+
+.formSection fieldset form label {
+    display: block;
+    padding: 4px 0px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.formSection fieldset form>input {
+    width: calc(100% - 28px);
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #D0D5DD;
+    box-shadow: 0px 1px 2px 0px #D0D5DD;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+
+.formmobno{
+    border: 1px solid #D0D5DD;
+    box-shadow: 0px 1px 2px 0px #D0D5DD;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.formmobno select {
+    padding: 10px 0px;
+    border: none;
+    border-radius: 8px;
+    flex-basis: 12%;
+    
+}
+
+.formmobno input {
+    flex-basis: 85%;
+    border: none;
+    padding: 10px 10px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    border-radius: 8px;
+}
+
+
+
+.formmobno select:focus{
+    outline: none;
+}
+
+
+
+.formSection fieldset form input:focus {
+    outline: none;
+}
+
+.formregbtn {
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px 18px;
+    background-color: transparent;
+    background: linear-gradient(#0ACEFE, #2699FB);
+    margin-top: 20px;
+    border: none;
+    box-shadow: 0px 3px 5px 0px #0ACEFE;
+    cursor: pointer;
+}
+
+.formbottomitems {
+    max-width: 1170px;
+    margin: auto;
+    border-radius: 8px;
+    padding: 39px;
+    box-shadow: 0px 0px 10px 0px #ececec;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* gap: 8px; */
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.fbi1 {
+    flex-basis: 174px;
+}
+
+.fbi1 h2 {
+    color: #2699FB;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36.31px;
+}
+
+.fbi1 p {
+    color: #43505B;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.keyhighlightsSection {
+    width: 100%;
+    padding: 40px 0px;
+    background-color: #F7FAFF;
+}
+
+.keyhighlightsMid {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.keyhighlightsMid h4 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.57px;
+    margin-bottom: 10px;
+}
+
+.keyhighlightsMid p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.keyhighlightsItems {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.keyhighlightsItemsInner {
+    padding: 16px;
+    flex-basis: 350px;
+    background-color: white;
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 8px;
+    align-items: center;
+    border-radius: 8px;
+    /* margin-bottom: 10px; */
+    margin: 10px auto;
+    /* border: 1px solid red; */
+}
+
+.keyhighlightsItemsInner img {
+    height: 86px;
+    width: 86px;
+}
+
+.keyhighlightsItemsInner h4 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+}
+
+.keyhighlightsItemsInner p {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+.keyhighlightsbookbtn {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.keyhighlightsbookbtn button {
+    padding: 16px 48px;
+    border-radius: 8px;
+    border: 1px solid #2699FB;
+    background: linear-gradient(#0ACEFE, #2699FB);
+    box-shadow: 0px 4px 14px 2px #2699FB;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    color: white;
+}
+
+.carroptdigimarkSection {
+    width: 100%;
+    padding: 40px 0px;
+}
+
+.carroptdigimarkMid {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.carroptdigimarkheading {
+    text-align: center;
+}
+
+.carroptdigimarkheading h3 {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 53.25px;
+    padding-bottom: 10px;
+}
+
+.carroptdigimarkheading p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    padding-bottom: 10px;
+}
+
+.carroptdigimarkItems {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    /* flex-wrap: wrap; */
+}
+
+.carroptdigimarkItems>div {
+    border: 1px solid #F2F4F7;
+    border-radius: 8px;
+    height: 278px;
+    flex-basis: calc(23% - 31px);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+}
+
+.certificateSection {
+    width: 100%;
+    background: #F7FAFF;
+}
+
+.certificateMid {
+    max-width: 1170px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 10px 0px; */
+}
+
+.certificateContent {
+    flex-basis: 46%;
+}
+
+.certificateContent>h1 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.57px;
+    text-align: left;
+}
+
+.certificateContent>p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.certificateItems {
+    background-color: white;
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.certificateItems img {
+    width: 48px;
+    height: 48px;
+}
+
+.certificateItems h4 {
+    font-size: 20px;
+    line-height: 24.2px;
+    font-weight: 600;
+}
+
+.certificateItems p {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.certificateBookBtn {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.certificateBookBtn button {
+    padding: 16px 48px 16px 48px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(93.77deg, #0ACEFE -6.36%, #2699FB 50.16%);
+    box-shadow: 0px 4px 14px 2px #2699FB61;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: left;
+}
+
+.certificateMain {
+    flex-basis: 45%;
+    /* border: 2px solid red; */
+    padding: 10px 0px;
+}
+
+.certificateMain img {
+    object-fit: cover;
+}
+
+.curriculumSection {
+    width: 100%;
+}
+
+.curriculumMid {
+    max-width: 1170px;
+    padding: 20px 10px;
+    margin: auto;
+}
+
+.curriculumMid>h1 {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 53.25px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+
+.curriculumMid>p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.curriculumMid>ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.curriculumMid>ul a {
+    color: black;
+}
+
+.curriculumMid>ul>li {
+    font-size: 18px;
+    padding: 10px;
+    font-weight: 600;
+    color: black;
+}
+
+.curriculumMidPresent {
+    background-color: rgb(221, 221, 221);
+    border-bottom: 3px solid #2699FB;
+}
+
+
+.curriculumSubmenu {
+    position: absolute;
+    top: 100%;
+    width: calc(100% - 40px);
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+    padding: 20px;
+    border: 1px solid #F2F4F7;
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.curriculumSubmenu>li i {
+    color: #2699FB;
+}
+
+.curriculumSubmenu>li {
+    flex-basis: 45%;
+    display: flex;
+    gap: 13px;
+    /* align-items: center; */
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26.63px;
+    margin-bottom: 20px;
+}
+
+.curriculumBtn {
+    margin-top: 300px;
+    width: 100%;
+    text-align: center;
+}
+
+.curriculumBtn button {
+    padding: 16px 48px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(93.77deg, #0ACEFE -6.36%, #2699FB 50.16%);
+    box-shadow: 0px 4px 14px 2px #2699FB61;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.whydigiSection{
+    width: 100%;
+    background: #F7FAFF;
+
+}
+
+.whydigiMid {
+    max-width: 1150px;
+    margin: auto;
+    padding: 20px 10px;
+    /* border: 1px solid red; */
+}
+
+.whydigiMid h1 {
+font-size: 36px;
+font-weight: 700;
+line-height: 43.57px;
+}
+
+.whydigiMid>p {
+font-size: 18px;
+font-weight: 400;
+line-height: 27px;
+}
+
+.whydigiMid>div {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.whydigiItems {
+    flex-basis: calc(28% - 30px);
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    height: 264px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0px;
+}
+
+.whydigiItems img {
+    height: 64px;
+    width: 64px;
+}
+
+.whydigiItems h4 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24.2px;
+}
+
+.whydigiItems p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.whydigibtn {
+    width: 100%;
+    text-align: center;
+}
+
+.whydigibtn button {
+    padding: 16px 48px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(93.77deg, #0ACEFE -6.36%, #2699FB 50.16%);
+    box-shadow: 0px 4px 14px 2px #2699FB61;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.commentSection{
+    width: 100%;
+}
+
+.commentMid {
+    max-width: 1140px;
+    padding: 30px 15px;
+    margin: auto;
+}
+
+.commentMid>h1{
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 53.25px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.commentMid>p {
+font-size: 18px;
+font-weight: 400;
+line-height: 27px;
+text-align: center;
+margin-bottom: 15px;
+}
+
+.commentMid>div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.commentItems {
+    flex-basis: calc(45% - 40px);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #F2F4F7;
+    box-shadow: 0px 4px 20px -2px #002F5814;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 255px;
+}
+
+.commentItemstop {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.commentItemstop img {
+    height: 80px;
+    width: 80px;
+}
+
+.commentItemstop h4{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24.2px;
+    text-align: left; 
+}
+
+.commentItemstop p{
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;      
+}
+
+
+.commentBookSection {
+    width: 100%;
+    margin: 80px auto;
+}
+
+.commentBookMid {
+    width: 95%;
+    margin: auto;
+    /* height: 400px; */
+    padding: 80px 0px;
+    border-radius: 16px;
+    background: linear-gradient(93.77deg, #0ACEFE -6.36%, #2699FB 50.16%);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.cmntimg1 {
+    width: 30%;
+    height: 375px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.cmntimg2 {
+    width: 30%;
+    height: 375px;
+    position: absolute;
+    top: 50px;
+    right: 0px;
+}
+
+.commentBookContent {
+    width: 50%;
+    margin: auto;
+    color: white;
+    text-align: center;
+}
+
+.commentBookContent h2 {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 53.25px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.commentBookContent p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+    padding-bottom: 15px;
+}
+
+.commentBookContent button {
+    padding: 16px 48px;
+    border-radius: 8px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px 0px #1018281A;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+.FAQSection {
+    width: 100%;
+    background: #F7FAFF;
+}
+
+.FAQMid {
+    max-width: 740px ;
+    margin: auto;
+    padding: 50px 15px;
+}
+
+.FAQMid>h1{
+font-size: 44px;
+font-weight: 700;
+line-height: 53.25px;
+text-align: center;
+padding-bottom: 10px ;
+}
+
+.FAQMid>p {
+font-size: 18px;
+font-weight: 400;
+line-height: 27px;
+text-align: center;
+margin-bottom: 15px;
+}
+
+.FAQList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.FAQList>li {
+    width: calc(100% - 40px);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid #F2F4F7;
+    display: flex;
+    justify-content: space-between;
+}
+
+.FAQList-Active {
+    border: 1px solid #2699FB !important;
+}
+
+.FAQList-Active::after {
+    content: '-' !important;
+    font-size: 25px;
+}
+
+.FAQList>li::after{
+    content: '+';
+    font-size: 25px;
+}
+
+.FAQList h4{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21.78px;
+    text-align: left;
+    padding: 5px 0px;
+}
+
+.FAQList p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.FAQBtn {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.FAQBtn button {
+    padding: 16px 48px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(93.77deg, #0ACEFE -6.36%, #2699FB 50.16%);
+    box-shadow: 0px 4px 14px 2px #2699FB61;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.topCompaniesSection {
+    width: 100%;
+}
+
+.topCompaniesMid {
+    max-width: 1170px;
+    margin: auto;
+    padding: 40px 0px;
+}
+
+.topCompaniesMid h2{
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.57px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.topCompaniesMid img {
+    width: 95%;
+    margin: auto;
+}
+
+footer {
+    width: 100%;
+    background: #0A2540;
+    padding: 30px 0px;
+}
+
+.footerMid {
+    max-width: 100%;
+    margin:auto;
+}
+
+.footerMidTop{
+    border-bottom: 1px solid white;
+    text-align: center;
+    color: white;
+}
+
+.footerMidTop img {
+    width: 165px;
+    margin-bottom: 20px;
+}
+
+.footerMidTop p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.footerMidBottom {
+    text-align: center;
+    padding: 10px 0px 0px 0px;
+    color: white;
+}
+
+.footerMidBottom a{
+    color: white;
+    text-decoration: underline;
+}

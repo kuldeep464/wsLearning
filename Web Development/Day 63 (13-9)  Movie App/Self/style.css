@@ -1,0 +1,50 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+h1{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.main{
+    max-width: 1320px;
+    margin: auto;
+}
+
+.searchBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.searchBox input{
+    width: 80%;
+    margin: auto;
+    font-size: 17px;
+    padding: 7px 12px;
+}
+
+.movieBox{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movieItems{
+    flex-basis: 23%;
+    margin:  1%;
+    background-color: aqua;
+}
+
+.movieItems img{
+    width: 100%;
+}
+
+.movieItems h3{
+    text-align: center;
+    padding: 8px;
+}

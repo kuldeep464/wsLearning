@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            height: 100vh;
+            background-color: blueviolet;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        h1 {
+            background-color: aquamarine;
+            padding: 30px;
+            width: 200px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>11:11:11 PM</h1>
+</body>
+<script>
+
+    let heading = document.querySelector("h1")
+    let dclock = () => {
+        let currentTime = new Date()
+        let totalseconds = currentTime.getTime()
+        let currenthour = currentTime.getHours()
+        let type = currenthour >= 12 ? "PM" : "AM" ;
+        let exacthour = currenthour > 12 ? currenthour - 12 : currenthour;
+        let finalhours = exacthour < 10 ? "0" + exacthour : exacthour;
+
+        let currentminute = currentTime.getMinutes()
+        let finalminutes = currentminute < 10 ? "0" + currentminute : currentminute
+        let currentseconds = currentTime.getSeconds()
+        let finalseconds = currentseconds < 10 ? "0" + currentseconds : currentseconds
+        heading.innerHTML = finalhours + ":" + finalminutes + ":" + finalseconds + " " + type
+
+
+        
+    }
+
+
+    setInterval(dclock, 1000);
+
+
+</script>
+
+</html>

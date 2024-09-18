@@ -1,0 +1,30 @@
+let userDate= document.querySelector("#userDate")
+let userTime=document.querySelector("#userTime")
+let btn=document.querySelector("button")
+
+btn.addEventListener("click", ()=>{
+    let currentDate = new Date()
+    let usertimezone= new Date(userDate.value + " " + userTime.value)
+    let totalMiliseconds= currentDate - usertimezone
+    let totalseconds = totalMiliseconds/1000
+    let knowminute = 60
+    let knowhour = knowminute*60
+    let knowday= knowhour*24
+    let knowmonth= knowday*30
+    let knowyear=knowday*365.25
+    let useryear= Math.floor(totalseconds/knowyear)
+    let years=document.querySelector("#years")
+    years.value=useryear
+    let usermonth=Math.floor((totalseconds % knowyear)/knowmonth)
+    let months=document.querySelector("#months")
+    months.value=usermonth
+    let userday=Math.floor((totalseconds % knowmonth)/knowday)
+    let days=document.querySelector("#days")
+    days.value=userday
+    let userhour=Math.floor((totalseconds % knowday)/knowhour)
+    let hours=document.querySelector("#hours")
+    hours.value=userhour
+    let userminute=Math.floor((totalseconds % knowhour)/knowminute)
+    let minutes=document.querySelector("#minutes")
+    minutes.value=userminute
+})

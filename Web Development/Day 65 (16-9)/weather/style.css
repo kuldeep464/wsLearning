@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url("https://t3.ftcdn.net/jpg/05/79/86/10/360_F_579861052_KjeAAbyaXOBY6JjxMEPBVJypp2KSb59v.jpg") no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.container{
+    max-width: 1170px;
+    margin: auto;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.container>h1{
+    font-size: 40px;
+    padding-bottom: 20px;
+    transition: 0.5s;
+}
+
+.container form{
+    display: flex;
+    gap: 10px;
+}
+
+.container form input{
+    flex-basis: 300px;
+    font-size: 17px;
+    padding: 5px 10px;
+}
+
+.container form button{
+    padding: 5px 10px;
+    border: none;
+    font-size: 17px;
+    background-color: brown;
+    color: white;
+}
+
+.box{
+    width: 300px;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: white;
+    color: black !important;
+    border-radius: 10px;
+}
+
+.box h1 {
+    padding: 10px 0px;
+}
+
+.box figure{
+    margin: 10px 0px;
+}

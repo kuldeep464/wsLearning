@@ -1,0 +1,280 @@
+
+//hero-slider
+
+// $("#loadmore").click(function(){
+//     //package-listing-item
+//     let items = $(document).find(".package-listing-item").length
+//     let total = $(this).attr("data-total")
+//     let where = $("#hidden_where").val()
+//     //console.log(where)
+//     if(items<total){
+//         //fetch more
+//         $.ajax({
+//             url:'/ajax/loadmore.php',
+//             method:'POST',
+//             data:{fetch_more:true,offset:items,where:where},
+//             success:function(result){
+//               // console.log(items)
+//               //  console.log(result)
+//                 try{
+//                     $("#packages_list").append(result)
+//                     let itemsx = $(document).find(".package-listing-item").length
+//                     if(itemsx>=total){
+//                         $("#loadmore").hide()
+//                     }
+//                 }catch(error){
+//                     console.log(error)
+//                 }
+//             }
+//         })
+//     }else{
+//         $(this).hide()
+//     }
+//     console.log(items);
+// })
+
+$(".drop").click(function(){
+    let element = $(this)
+    let child = element.children('.drop-menu')
+    if(child.hasClass("active")){
+        child.removeClass('active')
+        element.removeClass('active')
+    }else{
+        child.addClass('active')
+        element.addClass('active')
+    }
+})
+
+$(".btn-toggle-menu").click(function(){
+    let element = $(this)
+    let header = $("header")
+    if(header.is(":visible")){
+        header.hide();
+        element.find("i").removeClass("fa-times").addClass("fa-bars")
+       element.removeClass('bg-danger text-white')
+    }else{
+        header.show();
+         element.find("i").removeClass("fa-bars").addClass("fa-times")
+         element.addClass('bg-danger text-white')
+    }
+})
+$(document).on("submit", "#subscribe", function (e) {
+  e.preventDefault();
+  form = $(this);
+  var form_data = new FormData(this);
+  form_data.append("subscribe", true);
+  text = submit_start(form, "Saving...");
+  $.ajax({
+    url: "ajax/enquiry",
+    method: "POST",
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: form_data,
+    beforeSubmit: function () {},
+    success: function (result) {
+      console.log(result);
+      try {
+        result = JSON.parse(result);
+        if (result.type == true) {
+         submit_stop(form, text);
+         form.html(result.msg)
+        } else {
+          submit_stop(form, text);
+          alert(result.msg)
+        }
+      } catch (error) {
+        submit_stop(form, text);
+        alert(result.msg)
+      }
+    },
+  });
+});
+$(document).on("submit", "#contactForm", function (e) {
+  e.preventDefault();
+  form = $(this);
+  var form_data = new FormData(this);
+  form_data.append("contact_us", true);
+  text = submit_start(form, "Saving...");
+  $.ajax({
+    url: "ajax/enquiry",
+    method: "POST",
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: form_data,
+    beforeSubmit: function () {},
+    success: function (result) {
+      console.log(result);
+      try {
+        result = JSON.parse(result);
+        if (result.type == true) {
+          submit_stop(form, text);
+         form.html(result.html)
+        } else {
+          submit_stop(form, text);
+          form
+            .find(".form_errors")
+            .html(
+              `<p class='text-danger' style='margin:10px 0'>${result.msg}</p>`
+            );
+        }
+      } catch (error) {
+        submit_stop(form, text);
+        form
+          .find(".form_errors")
+          .html(
+            `<p class='text-danger' style='margin:10px 0'>${result.msg}</p>`
+          );
+      }
+    },
+  });
+});
+$(document).on("submit", "#bookingEnquiry", function (e) {
+  e.preventDefault();
+  form = $(this);
+  var form_data = new FormData(this);
+  form_data.append("send_enquiry", true);
+  text = submit_start(form, "Saving...");
+  $.ajax({
+    url: "ajax/enquiry",
+    method: "POST",
+    cache: false,
+    contentType: false,
+    processData: false,
+    data: form_data,
+    beforeSubmit: function () {},
+    success: function (result) {
+      console.log(result);
+      try {
+        result = JSON.parse(result);
+        if (result.type == true) {
+          submit_stop(form, text);
+         form.html(result.html)
+        } else {
+          submit_stop(form, text);
+          form
+            .find(".form_errors")
+            .html(
+              `<p class='text-danger' style='margin:10px 0'>${result.msg}</p>`
+            );
+        }
+      } catch (error) {
+        submit_stop(form, text);
+        form
+          .find(".form_errors")
+          .html(
+            `<p class='text-danger' style='margin:10px 0'>${result.msg}</p>`
+          );
+      }
+    },
+  });
+});
+
+
+$(".ent-s").submit(function(e){
+    e.preventDefault();
+    let ele = $(this)
+    let a = ele.find(".search-suggestions a");
+    if(a.length>0){
+        let c = a[0]
+        let r = a.attr("href")
+        window.location = r
+    }
+    
+})
+$("#search_input,#search_input22").keyup(function(){
+    let keywords = $(this).val()
+    console.log(keywords)
+    $.ajax({
+        url:'/ajax/search',
+        method:'POST',
+        data:{search:true,keywords:keywords},
+        success:function(result){
+            console.log(result)
+            $(".search-suggestions,.s22").html(result)   
+        }
+    })
+})
+let active_acc = false;
+$("#expandAll").click(function(){
+    button = $(this)
+    items = $('#accordionFlushConcept .accordion-button')
+    if(active_acc==false){
+    items.each(function(){
+        item = $(this)
+        item.removeClass('collapsed')
+    })
+     $('.collapse').addClass('show');
+      active_acc = true
+      button.text('Collapse All')
+    }else{
+        items.each(function(){
+        item = $(this)
+        item.addClass('collapsed')
+    })
+     $('.collapse').removeClass('show');
+      active_acc = false
+      button.text('Expand All')
+    }
+     
+})
+
+$('.slick-slider').slick({
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    prevArrow:"<button type='button' class='slick-prev pull-left'></button>",
+    nextArrow:"<button type='button' class='slick-next  pull-right'></button>",  
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
+  
+  $(document).on("keypress", "input[type='tel']", function (evt) {
+  if (evt.which < 48 || evt.which > 57 || $(this).val().length >= 10) {
+    evt.preventDefault();
+  }
+});
+
+function submit_start(form, text) {
+  button = form.find("button[type='submit']");
+  prev_text = button.html();
+  text = text != "" ? text : button.html();
+  button.prop("disabled", true);
+  button.html(`${text} <span class="spinner-border text-primary"></span>`);
+  return prev_text;
+}
+function submit_stop(form, text) {
+  button = form.find("button[type='submit']");
+  button.html(text);
+  button.prop("disabled", false);
+}

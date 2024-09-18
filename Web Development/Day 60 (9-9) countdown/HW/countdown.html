@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CountDown</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: aqua;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            background-color: bisque;
+            display: inline-block;
+            padding: 30px 50px;
+            border-radius: 15px;
+            color: rgb(71, 71, 71);
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> <span></span></h1>
+</body>
+<script>
+
+    let heading = document.querySelector("h1")
+    let diffinsec;
+    let newtag
+    let intervalfunc = () => {
+        let currentDate = new Date()
+        let totalcurrentsec = currentDate.getTime() / 1000
+        let lastDate = new Date("Tue Sep 14 2024 19:18:30 GMT+0530")
+        let totallastsec = lastDate.getTime() / 1000
+         diffinsec = totallastsec - totalcurrentsec
+        let oneminute = 60
+        let onehour = oneminute * 60
+        let oneday = onehour * 24
+         daysleft = Math.floor(diffinsec / oneday)
+        let secleftforhours = diffinsec % oneday
+         hourleft = Math.floor(secleftforhours / onehour)
+        let secleftforminutes = diffinsec % onehour
+         minutesleft = Math.floor(secleftforminutes / oneminute)
+         secleft = Math.floor(diffinsec % oneminute)
+        heading.innerHTML = (daysleft < 10 ? "0" + daysleft : daysleft) + " Days " + (hourleft < 10 ? "0" + hourleft : hourleft) + " h " + (minutesleft < 10 ? "0" + minutesleft : minutesleft) + " m " + (secleft < 10 ? "0" + secleft : secleft) + " s "
+         newtag = document.createElement("span")
+        heading.append(newtag)
+        newtag.innerHTML = "Left"
+    }
+
+    let forStopAndSet = setInterval(() => {
+        intervalfunc()
+        if(diffinsec<=0){
+            clearInterval(forStopAndSet)
+            heading.innerHTML ="0 Days " + "0 h " + "0 m " +  "0 s "
+            alert("Timer is Terminated")
+            heading.append(newtag)
+        }
+    }, 1000);
+
+</script>
+
+</html>

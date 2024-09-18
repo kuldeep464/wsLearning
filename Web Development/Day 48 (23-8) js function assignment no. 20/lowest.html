@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let l= [25,99,77,66,44,88,99,66,77,66,55]
+    let lowest=l[0];
+    function lowestNumber(){
+        for (let v of l){
+            if(v<lowest){
+                lowest=v
+            }
+        }
+    }
+    lowestNumber()
+    console.log(lowest)
+</script>
+</html>

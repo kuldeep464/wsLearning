@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 500px;
+            position: fixed;
+            left: 50%;
+            transition: 0.5s;
+            top: -500px;
+            transform: translate(-50%,-50%);
+        }
+        .main img{
+            width: 100%;
+        }
+        .main span{
+            background-color: white;
+            position: absolute;
+            right: 0px;
+            cursor: pointer;
+            font-size: 35px;
+        }
+
+        .modelShow{
+            top: 50%;
+        }
+    </style>
+</head>
+<body>
+
+        <!-- <div class="main">
+            <span>&times</span>
+            <img src="https://www.wscubetech.com/_next/image?url=https%3A%2F%2Fd2kr1rbctelohj.cloudfront.net%2Fuploads%2Fimages%2Fcourses%2Fpop-up%2Fda-cohort-2-1.webp&w=640&q=75" alt="">
+        </div>
+        <button onclick="stopInterval()">Stop</button> -->
+</body>
+<script>
+   
+    // console.log(oneMin)
+    // console.log(oneHour)
+    // console.log(oneDay)
+
+
+    // let allSecond=300000;
+
+
+
+
+    // let c=0;
+
+    // let countData=()=>{
+    //     c++;
+    //     console.log(c)
+    // }
+
+    // countData()
+
+    // let allInterval= setInterval(()=>{
+    //     countData()
+    //     if(c==20){
+    //         clearInterval(allInterval)
+    //     }
+    // },1000)
+
+
+    // let stopInterval=()=>{
+    //     clearInterval(allInterval)
+    // }
+
+
+    // let mainDiv=document.querySelector(".main")
+    // let mainDivClose=document.querySelector(".main span")
+    
+    // let showModel=()=>{
+    //    mainDiv.classList.toggle('modelShow')
+    // }
+
+    // mainDivClose.addEventListener("click",showModel)
+    // setTimeout(showModel,3000)
+
+
+    let currentDate=new Date()
+
+    let counDowndate=new Date("Mon Sep 15 2024 11:59:59 GMT+0530")
+
+    let currentDateMs=currentDate.getTime()
+
+    let counDowndateMs=counDowndate.getTime()
+  
+    let diffMs= counDowndateMs -  currentDateMs
+
+    let finalSecond= Math.floor(diffMs /1000);
+    
+     let oneMin=60;
+    let oneHour=60*oneMin;  //3600
+    let oneDay= oneHour*24 //86400
+    console.log(finalSecond)  //488948 - 4,32,000
+    let finalDays= Math.floor(finalSecond / oneDay)
+
+    console.log(finalDays)
+
+
+</script>
+</html>

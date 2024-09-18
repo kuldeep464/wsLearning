@@ -1,0 +1,38 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: sans-serif;
+}
+
+.video-section{
+	width: 100%;
+	padding: 50px 0px;
+	background: #ccc;
+}
+.video-section h2{
+	display: flex;
+	justify-content: center;
+	gap: 5px;
+}
+
+.video-section h2 span{
+	color: #958c60;
+}
+
+
+.video-mid{
+	max-width: 1170px;
+	display: flex;
+	margin: auto;
+	flex-wrap: wrap;
+}
+
+.video-items{
+	flex-basis: 30%;
+	background: white;
+    margin: 1.5%;
+}
+.video-items h3{
+	text-align: center;
+	padding: 10px 0px;
+}

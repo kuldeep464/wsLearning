@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			font-family: sans-serif;
+			list-style: none;
+		}
+		header{
+			display: flex;
+			box-shadow: 0px 2px 10px 0px #ccc;
+
+		}
+		header figure{
+			padding: 10px;
+		}
+		header nav>ul{
+			display: flex;
+		}
+		header nav>ul>li{
+			
+			padding: 30px 20px;
+			position: relative;
+		}
+
+		.submenu{
+			position: absolute;
+			background: yellow;
+			width: 150px;
+			top: 100%;
+			display: none;
+			left: 0px;
+		}
+		header nav>ul>li:hover .submenu{
+			display: block;
+		}
+		.submenu li{
+			padding: 10px;
+		}
+		.gallerysection{
+			width: 100%;
+			padding: 50px 0px;
+			background: #ccc;
+		}
+
+		.gallerymid{
+			max-width: 1170px;
+			margin: auto;
+			display: flex;
+		}
+
+		.galleryItems{
+			flex-basis: 32%;
+			margin: 1%;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.galleryItems img{
+			width: 100%;
+			display: block;
+		}
+
+		.content{
+			width: 100%;
+			background: white;
+			position: absolute;
+			height: 100%;
+			
+			transition: 0.5s;
+			top: 100%;
+		}
+		.galleryItems:hover .content{
+			top: 0px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<figure>
+			<img src="https://www.lawpreptutorialpatna.com/wp-content/uploads/2024/03/LPT-LOGO-BLack-1.png" width="120">
+		</figure>
+		<nav>
+			<ul>
+				<li>Our Courses
+					<ul class="submenu">
+						<li>Offline Course</li>
+						<li>Online Course</li>
+					</ul>
+				</li>
+				<li>Test Series</li>
+				<li>Study Material</li>
+				<li>Our Courses</li>
+				<li>Our Courses</li>
+			</ul>
+		</nav>
+	</header>
+
+	<section class="gallerysection">
+		<div class="gallerymid">
+			<div class="galleryItems">
+				<img src="https://uptownskylla.in/wp-content/uploads/2019/10/05-Contener-No-3rd-06.jpg">
+				<div class="content">
+					<h2>Welcome to ws</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+					<button>Read More</button>
+				</div>
+			</div>
+			<div class="galleryItems">
+				<img src="https://uptownskylla.in/wp-content/uploads/2019/10/05-Contener-No-3rd-06.jpg">
+			</div>
+			<div class="galleryItems">
+				<img src="https://uptownskylla.in/wp-content/uploads/2019/10/05-Contener-No-3rd-06.jpg">
+			</div>
+		</div>
+	</section>
+</body>
+</html>

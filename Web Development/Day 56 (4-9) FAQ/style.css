@@ -1,0 +1,44 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+    padding: 50px;
+}
+
+.container{
+    max-width: 1320px;
+    margin: auto;
+}
+
+.faqItems{
+    margin-bottom: 10px;
+}
+
+.faqItems h2{
+    padding: 12px;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: space-between;
+    color: aliceblue;
+}
+
+.ans{
+    border: 1px solid black;
+    padding: 0px 15px;
+    line-height: 25px;
+    transform-origin: top;
+    transform: scaley(0);
+    max-height: 0px;
+    transition: 0.5s;
+}
+
+.ansShow{
+    padding: 15px,15px;
+    transform: scale(1);
+    max-height: 500px;
+}
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    //task 1
+    // let l=[10,88,77,6,77]
+    // let total=0;
+    // for(let v of l){
+    //     total=v+total
+    // }
+
+    // console.log(total)
+
+    //  total= 10 + 0  = 10
+    //  total= 88  + 10 = 98
+    //  total= 77  + 98 = 175
+    //  total= 6  + 175 = 181
+    //   total= 77  + 181 = 258
+
+
+    //Task2 
+    // let task2Array=[10,88,99,77,6,77,55,44]
+
+    // let maxvalue=task2Array[0] //10
+
+    // for(let v of task2Array){
+
+    //     if(v>maxvalue){
+    //         maxvalue=v;
+    //     }
+        
+    // }
+
+    
+    // let secondMax=task2Array[0] //10
+    
+    // for(let v of task2Array){
+
+    //     if(v>secondMax  && v!=maxvalue){
+    //         secondMax=v;
+    //     }
+        
+    // }
+
+   
+    // console.log(maxvalue)
+
+    // console.log(secondMax)
+
+    //  10>10  == False  maxvalue=10
+    //  88>10 === True   maxValue=88
+    //  99>88 === True   maxValue=99
+    //  77>99
+    //  6>99
+    //  77>99
+    //  55>99
+    //  44>99
+    //
+
+    let l1=[1,2,3,4,5]
+
+    console.log(l1.includes(3))
+    let l2=[3,4,5,6,7]
+
+    let newArray=[]
+
+    for(let v of l1){
+        if(! l2.includes(v) ){
+            newArray.push(v)
+        }
+    }
+
+    //newArray=[1,2]
+
+    for(let v of l2){
+        if( ! l1.includes(v) ){
+            newArray.push(v)
+        }
+    }
+
+    console.log(newArray)
+    
+    //  let finalArray=l1.concat(l2) //[1,2,3,4,5,3,4,5,6,7]
+
+    // // let finalArray=new Set([...l1,...l2])
+    // let newArray=[]
+   
+
+    // for(let v of finalArray){
+    //     // let count=finalArray.find(v)
+    //     // console.log(count)
+
+    //     let count=0; 
+    //     for(let j of finalArray){
+    //         if(j==v){
+    //             count++;
+    //         }
+    //     }
+    //     if(count==1){
+    //         newArray.push(v)
+    //     }
+
+
+    // }
+
+    // console.log(newArray)
+
+
+    // let l=[1,2,3,4,5,3,4,5,6,7]
+
+    // let c=0;
+    // for(let n of l){
+    //     if(n==3){
+    //         c++
+    //     }
+    // }
+
+
+    // console.log(c)
+</script>
+</html>

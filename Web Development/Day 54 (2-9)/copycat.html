@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copy cat</title>
+</head>
+<style>
+    .container{
+        width: 1170px;
+        margin: auto;
+    }
+
+    .container textarea{
+        width: 100%;
+        height: 100%;
+        resize: none;
+        font-size: 30px;
+        /* border: 3px solid black; */
+        
+    }
+    .typing, .output{
+        width: 100%;
+        height: 300px;
+        border: 1px solid black;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="typing">
+            <textarea name="" id="" autofocus></textarea>
+        </div>
+        <h2>Totel Length: <span class="totallength">0</span></h2>
+        <h2>Total Words: <span class="totalwords">0</span></h2>
+        <div class="output"></div>
+    </div>
+</body>
+<script>
+    let textareaElement=document.querySelector("textarea")
+    let output=document.querySelector(".output")
+    let totallength=document.querySelector(".totallength")
+    let totalwords=document.querySelector(".totalwords")
+
+
+    textareaElement.addEventListener("keyup",()=>{
+        let textvalue=textareaElement.value
+        let countword=textvalue.split(" ")
+        output.innerHTML=textvalue
+        totallength.innerHTML=textvalue.length
+        totalwords.innerHTML=countword.length
+    })
+</script>
+</html>

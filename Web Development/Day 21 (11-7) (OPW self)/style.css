@@ -1,0 +1,360 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding: 40px;
+}
+
+
+.main {
+    /* width: 100vw; */
+    width: 100%;
+    /* padding: 10px; */
+    border-bottom: 1px solid grey;
+    box-shadow: 0px 1px 10px grey;
+    background-color: white;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.main-mid {
+    max-width: 80%;
+    margin: 10px auto;
+    /* background-color: rgb(118, 165, 149); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo {
+    margin: 0px 20px;
+
+}
+
+.logo img {
+    height: 50px;
+
+}
+
+.main-mid div {
+    width: 40%;
+}
+
+.main-menu {
+    display: flex;
+    justify-content: space-around;
+    font-family: "Noto Sans", sans-serif;
+
+}
+
+.main-menu li {
+    /* border: 1px solid red; */
+    font-size: 22px;
+
+}
+
+.main-menu li a {
+    color: rgb(59, 10, 10);
+}
+
+.main-menu li a:hover {
+    border-bottom: 2px solid blue;
+    color: blue;
+}
+
+.town1 {
+    width: 100%;
+    height: 100vh;
+    background: url(images/the-town-bg-01.jpg) center fixed;
+    background-size: cover;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+
+}
+
+.town1 h1 {
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-weight: normal;
+    flex-basis: 10%;
+}
+
+.town1 i {
+    font-size: 100px;
+    color: white;
+    transition: 1s;
+}
+
+.town1 i:hover {
+    color: blueviolet;
+}
+
+
+#introduction {
+    width: 100%;
+    margin: 0px 0px;
+    padding: 20px 0px;
+    /* background-color: white; */
+    /* scroll-behavior: smooth; */
+
+}
+
+.introduction-mid {
+    max-width: 80%;
+    margin: auto;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.introduction-image {
+    max-width: 40%;
+    margin: 10px;
+}
+
+.introduction-image img {
+    width: 100%;
+}
+
+.introduction-text {
+    padding: 0px 20px;
+    max-width: 50%;
+}
+
+.introduction-text h1 {
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+    color: rgb(0, 191, 255);
+    font-weight: normal;
+    border-bottom: 1px solid rgb(0, 191, 255);
+}
+
+.introduction-text p {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+    margin: 20px 10px;
+    color: rgb(153, 149, 149);
+    line-height: 28px;
+}
+
+.introduction-text button {
+    font-size: 20px;
+    margin: 0px 20px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(52, 52, 250);
+    color: white;
+    border-radius: 20px;
+}
+
+.introduction-text button:hover {
+    background-color: rgb(120, 120, 231);
+    transition: 0.5s;
+}
+
+.introduction-bottom {
+    max-width: 80%;
+    margin: auto;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.introduction-box {
+    width: 27%;
+    margin: 3%;
+    /* border: 1px solid red; */
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.introduction-box i {
+    font-size: 50px;
+    color: rgb(39, 115, 141);
+}
+
+.introduction-box h2 {
+    color: rgb(16, 101, 129);
+    margin-top: 20px;
+}
+
+.introduction-box p {
+    color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px 0px;
+    line-height: 27px;
+    font-size: 18px;
+}
+
+#work {
+    max-width: 80%;
+    margin: auto;
+    padding: 20px 0px;
+    /* border: 1px solid red; */
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    /* scroll-behavior: smooth; */
+}
+
+#work h1 {
+    font-weight: normal;
+    color: rgb(41, 124, 151);
+    font-size: 40px;
+    margin: 15px 0px;
+}
+
+
+#work p {
+    font-size: 18px;
+    color: grey;
+    word-spacing: 5px;
+    padding: 10px 110px;
+    line-height: 30px;
+}
+
+.gallery {
+    max-width: 80%;
+    margin: auto;
+    padding: 20px 0px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-around;
+}
+
+.gallery>div {
+    width: 250px;
+    height: 300px;
+    margin: 0px 1px;
+}
+
+.gallery>div img {
+    width: 100%;
+    height: 300px;
+}
+
+
+
+#contact {
+    width: 100%;
+    background: url(images/the-town-bg-02.jpg) center fixed;
+    background-size: cover;
+    height: 90vh;
+    /* scroll-behavior: smooth; */
+}
+
+.contact-mid {
+    max-width: 80%;
+    margin: auto;
+    padding: 40px 0px;
+}
+
+.contact-heading {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 30px;
+    border-bottom: 1px solid white;
+}
+
+.contact-heading h1 {
+    color: white;
+    border-bottom: 10px solid white;
+    width: fit-content;
+}
+
+.contact-mid p {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    gap: 40px;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.link-items {
+    flex-basis: 45%;
+    display: flex;
+    align-items: center;
+}
+
+/* .link-items i:hover {
+    color: rgb(87, 112, 253);
+} */
+
+.link-items i {
+    font-size: 30px;
+    color: white;
+    transition: 0.5s;
+
+}
+
+.link-items a {
+    color: white;
+    margin-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: 0.5s;
+}
+
+.link-items:hover a ,.link-items:hover i {
+    color: rgb(142, 94, 255);
+    /* border-bottom: 1px solid white; */
+}
+
+/* .link-items i:hover {
+    color: rgb(142, 94, 255);
+    border-bottom: 1px solid white;
+} */
+
+.email-input {
+    padding: 7px 15px;
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    transition: 0.2s;
+}
+
+.email-input:focus {
+    outline: none;
+}
+
+.email-input:hover {
+    border: 1px solid rgb(255, 0, 0);
+}
+
+.email-input::placeholder {
+    color: white;
+}
+
+.submit {
+    padding: 7px 15px;
+    background-color: lightblue;
+    border-radius: 10px;
+    transition: 0.5s;
+    margin-left: 20px;
+}
+
+.submit:hover {
+    background-color: rgb(209, 95, 95);
+    color: white;
+}

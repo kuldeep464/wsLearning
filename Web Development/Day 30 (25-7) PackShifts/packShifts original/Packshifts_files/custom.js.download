@@ -1,0 +1,281 @@
+(function($) {
+    "use strict";
+	
+	/* ..............................................
+	Loader 
+    ................................................. */
+	
+	$(window).on('load', function() { 
+		$('.preloader').fadeOut(); 
+		$('#preloader').delay(550).fadeOut('slow'); 
+		$('body').delay(450).css({'overflow':'visible'});
+	});
+    	
+	/* ..............................................
+    Navbar Bar
+    ................................................. */
+	
+	$('.navbar-nav .nav-link').on('click', function() {
+		var toggle = $('.navbar-toggler').is(':visible');
+		if (toggle) {
+			$('.navbar-collapse').collapse('hide');
+		}
+	});
+	
+	/* ..............................................
+    Fixed Menu
+    ................................................. */
+    
+	$(window).on('scroll', function () {
+		if ($(window).scrollTop() > 50) {
+			$('.top-header').addClass('fixed-menu');
+		} else {
+			$('.top-header').removeClass('fixed-menu');
+		}
+	});
+
+	/* ..............................................
+    Properties Filter
+    ................................................. */
+	var Container = $('.container');
+	Container.imagesLoaded(function () {
+		var portfolio = $('.properties-menu');
+		portfolio.on('click', 'button', function () {
+			$(this).addClass('active').siblings().removeClass('active');
+			var filterValue = $(this).attr('data-filter');
+			$grid.isotope({
+				filter: filterValue
+			});
+		});
+		var $grid = $('.properties-list').isotope({
+			itemSelector: '.properties-grid'
+		});
+
+	});
+
+	/* ..............................................
+    Gallery
+    ................................................. */
+	
+	$(document).ready(function() {
+		$('.popup-gallery').magnificPopup({
+			delegate: 'a',
+			type: 'image',
+			tLoading: 'Loading image #%curr%...',
+			mainClass: 'mfp-img-mobile',
+			gallery: {
+				enabled: true,
+				navigateByImgClick: true,
+				preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+			},
+			image: {
+				tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+				titleSrc: function(item) {
+					return item.el.attr('title') + '<small>by Marsel Van Oosten</small>';
+				}
+			}
+		});
+	});
+	
+	/* ..............................................
+    Scroll To Top
+    ................................................. */
+	
+	$(document).ready(function () {
+
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 100) {
+				$('#scroll-to-top').fadeIn();
+			} else {
+				$('#scroll-to-top').fadeOut();
+			}
+		});
+
+		$('#scroll-to-top').click(function () {
+			$("html, body").animate({
+				scrollTop: 0
+			}, 600);
+			return false;
+		});
+
+	});
+	
+	
+	/* ..............................................
+    Smooth Scroll
+    ................................................. */
+	
+	$('a[href*="#"]:not([href="#"])').on('click', function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
+		  var target = $(this.hash);
+			  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			  if (target.length) {
+				$('html,body').animate({
+				  scrollTop: target.offset().top - 65,
+				  }, 1000);
+				  return false;
+			  }
+		}
+	});
+
+	
+}(jQuery));
+
+
+(function ($) {
+	$.fn.countTo = function (options) {
+		options = options || {};
+		
+		return $(this).each(function () {
+			// set options for current element
+			var settings = $.extend({}, $.fn.countTo.defaults, {
+				from:            $(this).data('from'),
+				to:              $(this).data('to'),
+				speed:           $(this).data('speed'),
+				refreshInterval: $(this).data('refresh-interval'),
+				decimals:        $(this).data('decimals')
+			}, options);
+			
+			// how many times to update the value, and how much to increment the value on each update
+			var loops = Math.ceil(settings.speed / settings.refreshInterval),
+				increment = (settings.to - settings.from) / loops;
+			
+			// references & variables that will change with each update
+			var self = this,
+				$self = $(this),
+				loopCount = 0,
+				value = settings.from,
+				data = $self.data('countTo') || {};
+			
+			$self.data('countTo', data);
+			
+			// if an existing interval can be found, clear it first
+			if (data.interval) {
+				clearInterval(data.interval);
+			}
+			data.interval = setInterval(updateTimer, settings.refreshInterval);
+			
+			// initialize the element with the starting value
+			render(value);
+			
+			function updateTimer() {
+				value += increment;
+				loopCount++;
+				
+				render(value);
+				
+				if (typeof(settings.onUpdate) == 'function') {
+					settings.onUpdate.call(self, value);
+				}
+				
+				if (loopCount >= loops) {
+					// remove the interval
+					$self.removeData('countTo');
+					clearInterval(data.interval);
+					value = settings.to;
+					
+					if (typeof(settings.onComplete) == 'function') {
+						settings.onComplete.call(self, value);
+					}
+				}
+			}
+			
+			function render(value) {
+				var formattedValue = settings.formatter.call(self, value, settings);
+				$self.html(formattedValue);
+			}
+		});
+	};
+	
+	$.fn.countTo.defaults = {
+		from: 0,               // the number the element should start at
+		to: 0,                 // the number the element should end at
+		speed: 1000,           // how long it should take to count between the target numbers
+		refreshInterval: 100,  // how often the element should be updated
+		decimals: 0,           // the number of decimal places to show
+		formatter: formatter,  // handler for formatting the value before rendering
+		onUpdate: null,        // callback method for every time the element is updated
+		onComplete: null       // callback method for when the element finishes updating
+	};
+	
+	function formatter(value, settings) {
+		return value.toFixed(settings.decimals);
+	}
+}(jQuery));
+
+// jQuery(function ($) {
+//   // custom formatting example
+//   $('.count-number').data('countToOptions', {
+// 	formatter: function (value, options) {
+// 	  return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+// 	}
+//   });
+  
+//   // start all the timers
+//   $('.timer').each(count);  
+  
+//   function count(options) {
+// 	var $this = $(this);
+// 	options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+// 	$this.countTo(options);
+//   }
+// });
+
+/* ======= clients ======= */
+    $('.client-slid-carousel').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        prevArrow: '<i class="fa fa-chevron-left left"></i>',
+        nextArrow: '<i class="fa fa-chevron-right right"></i>',
+        infinite: true,
+        dots: false,
+        pauseOnFocus: false,
+        pauseOnHover: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
+
+
+
+    
+
+    var mycities=["Port Blair", "Anantapur", "Chittoor", "East Godavari", "Guntur", "Kadapa", "Kakinada", "Krishna", "Kurnool", "Medak", "Nellore", "Ongole", "Patancheru", "Prakasam", "Rajamundry", "Srikakulam", "Tanuku", "Tirupati", "Vijaywada", "Visakapatnam", "Vizianagaram", "West Godavari", "East Siang", "Itanagar", "Naharlagun", "Papumpara", "West Kameng", "Barpeta", "Bongaigaon", "Cachar", "Dhemaji", "Dhubri", "Dibrugarh", "Goalpara", "Golaghat", "Guwahati", "Hailakandi", "Jorhat", "Kamrup", "Karimganj", "Kokrajhar", "Marigaon", "Nagaon", "Nalbari", "North Cachar Hills", "Silchar", "Sivasagar", "Sonitpur", "Tezpur", "Tinsukia", "Araria", "Arrah", "Banka", "Begusarai", "Bettiah", "Bhagalpur", "Bhojpur", "Buxar", "Chapra", "Darbhanga", "East Champaran", "Gaya", "Ghatsila", "Gopalganj", "Hazipur", "Jehanabad", "Kaimur", "Katihar", "Khagaria", "Kishanganj", "Lakhisarai", "Madhepura", "Madhubani", "Motihari", "Munger", "Muzaffarpur", "Nalanda", "Nawada", "Patna", "Purnia", "Rohtas", "Saharsa", "Samastipur", "Saran", "Sasaram", "Sheikhpura", "Sitamarhi", "Siwan", "Supaul", "Vaishali", "West Champaran", "Bastar", "Bhilai", "Bilaspur", "Dantewada", "Dhamtari", "Durg", "Janjgir-Champa", "Kanker", "Kawardha", "Korba", "Koriya", "Mahasamund", "Raigarh", "Raipur", "Rajnandgaon", "Surguja", "Dadra", "Silvassa", "Daman", "Diu", "New Delhi", "Shahdara", "Bardez", "Benaulim", "Bicholim", "Donapaula", "Goa", "Mapusa", "Margoa", "Panaji", "Ponda", "Salcette", "Sattari", "Vasco Da Gama", "Verna", "Zuari Nagar", "Ahmedabad", "Amreli", "Anand", "Ankleshwar", "Banas Kantha", "Bharuch", "Bhavnagar", "Bhuj", "Changodar", "Dahod", "Dhoraji", "Dhrangdhara", "Dohad", "Gandhidham", "Gandhinagar", "Godhra", "Gondal", "Halol", "Himatnagar", "Jamnagar", "Junagadh", "Kalol", "Karjan", "Kheda", "Killa Pardi", "Kutch", "Mehsana", "Morbi", "Nadiad", "Narmada", "Navsari", "New Kandla", "Palanpur", "Panch Mahals", "Patan", "Petlad", "Porbandar", "Rajkot", "Sabar Kantha", "Sidhpur", "Surat", "Surendranagar", "The Dangs", "Umargam", "Vadodara", "Valsad", "Vapi", "Veraval", "Vidyanagar", "Ambala", "Bahadurgarh", "Ballabgarh", "Bhiwani", "Faridabad", "Fatehabad", "Gurugram", "Hissar", "Jagadhri", "Jhajjar", "Jind", "Kaithal", "Karnal", "Kurukshetra", "Manesar", "Mohindergarh", "Palwal", "Panchkula", "Panipat", "Rewari", "Rohtak", "Sirsa", "Sonipat", "Yamunanagar", "Baddi", "Chamba", "Dalhousie", "Kangra", "Kinnaur", "Kullu", "Mandi", "Palampur", "Parwanoo", "Shimla", "Sirmaur", "Solan", "Una", "Anantnag", "Baramulla", "Budgam", "Jammu", "Kathua", "Kupwara", "Leh", "Poonch", "Pulwama", "Rajauri", "Srinagar", "Udhampur", "Bokaro", "Chaibasa", "Chatra", "Deoghar", "Dhanbad", "Dumka", "East Singhbhum", "Garhwa", "Giridih", "Godda", "Gumla", "Hazaribag", "Jamshedpur", "Jamtara", "Kharsawa", "Kodarma", "Lohardaga", "Pakur", "Palamu", "Ramgarh", "Ranchi", "Sahibganj", "Seraikela", "Simdega", "West Singhbhum", "Bagalkot", "Belagavi", "Bellary", "Bengaluru", "Bidar", "Bijapur", "Chamrajnagar", "Chikballapur", "Chikmagalur", "Chitradurga", "Dandeli", "Davangere", "Dharwad", "Gadag", "Gulbarga", "Hassan", "Haveri", "Hoskote", "Hospet", "Hubli", "Karwar", "Kodagu", "Kolar", "Koppal", "Madhur", "Madikeri", "Mandya", "Mangaluru", "Manipal", "Mysuru", "Nangangud", "North Kannada", "Raichur", "Ramanagara", "Shimoga", "Shirur", "Sirsi", "South Kannada", "Sullia", "Tumkur", "Udipi", "Ujire", "Alappuzha", "Aluva", "Calicut", "Ernakulam", "Idukki", "Kanjikode", "Kannur", "Kasargod", "Kochi", "Kollam", "Kottayam", "Kozhikode", "Malappuram", "Munnar", "Palai", "Palakkad", "Pathanamthitta", "Pathirapally", "Tellicherry", "Thiruvalla", "Thiruvananthapuram", "Thrissur", "Wayanad", "Kavaratti", "Balaghat", "Barwani", "Betul", "Bhind", "Bhopal", "Burahanpur", "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas", "Dhar", "Guna", "Gwalior", "Harda", "Hoshangabad", "Indore", "Jabalpur", "Jhabua", "Katni", "Khandwa", "Khargone", "Mandideep", "Mandla", "Mandsaur", "Morena", "Nagda", "Narsinghpur", "Neemuch", "Panna", "Pithampur", "Raisen", "Rajgarh", "Ratlam", "Rewa", "Sagar", "Satna", "Sehore", "Seoni", "Shahdol", "Shajapur", "Shivpuri", "Sidhi", "Tikamgarh", "Udhana", "Ujjain", "Vidisha", "Ahmednagar", "Akola", "Amravati", "Aurangabad", "Beed", "Bhandara", "Bhusaval", "Buldhana", "Chandrapur", "Dhule", "Gadchiroli", "Gondiya", "Hingoli", "Jalgaon", "Jalna", "Khandala", "Kolhapur", "Latur", "Mahabaleshwar", "Mumbai", "Nagpur", "Nanded", "Nandurbar", "Nashik", "Navi Mumbai", "Osmanabad", "Parbhani", "Pune", "Raigad", "Ratnagiri", "Sangli", "Satara", "Shirdi", "Sindhudurg", "Solapur", "Tarapur", "Thane", "Wai", "Wardha", "Washim", "XYS", "Yavatmal", "Churachandpur", "Imphal", "Thoubal", "Ukhrul", "Burnihat", "Ri Bhoi", "Shillong", "Aizwal", "Dimapur", "Kohima", "Mokokchung", "Wokha", "Angul", "Balangir", "Balasore", "Bargarh", "Berhampur", "Bhadrak", "Bhubaneshwar", "Boudh", "Chandipore", "Cuttack", "Dhenkanal", "Gajapati", "Ganjam", "Jagatsinghapur", "Jajapur", "Jharsuguda", "Kalahandi", "Kandhamal", "Kendrapara", "Keonjhar", "Khordha", "Koraput", "Mayurbhanj", "Nabarangapur", "Nayagarh", "Nuapada", "Puri", "Rayagada", "Rourkela", "Sambalpur", "Sundargarh", "Karaikal", "Puducherry", "Villiyanur", "Yanam", "Amritsar", "Batala", "Bathinda", "Chandigarh", "Dhuri", "Faridkot", "Fatehgarh Sahib", "Ferozpur", "Gurdaspur", "Hoshiarpur", "Jalalabad", "Jalandhar", "Kapurthala", "Ludhiana", "Malerkotla", "Mandi Gobindgarh", "Mansa", "Moga", "Mohali", "Muktsar", "Nawanshahr", "Pathankot", "Patiala", "Phagwara", "Rajpura", "Ropar", "Rupnagar", "Sangrur", "Tarn Taran", "Ajmer", "Alwar", "Banswara", "Baran", "Barmer", "Bharatpur", "Bhawanimandi", "Bhilwara", "Bhiwadi", "Bikaner", "Bundi", "Chittorgarh", "Churu", "Dausa", "Dholpur", "Dungarpur", "Ganganagar", "Hanumangarh", "Jaipur", "Jaisalmer", "Jalor", "Jhalawar", "Jhunjhunu", "Jodhpur", "Kota", "Ladnun", "Makrana", "Mount Abu", "Nagaur", "Pali", "Pilani", "Rajsamand", "Sawai Madhopur", "Sikar", "Sirohi", "Srigangangar", "Tonk", "Udaipur", "Vijaypur", "Gangtok", "Namchi", "Ambur", "Annamalainagar", "Aruppukottai", "Chengalpettu", "Chennai", "Chidambaram", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindugal", "Erode", "Guindy", "Gummidipundi", "Hosur", "Kanchipuram", "Kanyakumari", "Karur", "Kodaikanal", "Kovilpatti", "Krishnagiri", "Kumbakonam", "Madurai", "Manamadurai", "Mayiladuthurai", "Mettupalayam", "Nagapattinam", "Nagercoil", "Namakkal", "Navalur", "Neyveli", "Nilgiris", "Palani", "Palladam", "Pasumpon", "Perambalur", "Periyar", "Pollachi", "Pudukkottai", "Rajapalayam", "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Sivakasi", "South Arcot", "Sriperumbudur", "Sulur", "Thanjavur", "Theni", "Thiruporur", "Thiruvallur", "Thiruvannamalai", "Thoothukudi", "Tirunelveli", "Tirupur", "Tiruvarur", "Trichy", "Tuticorin", "Udhagamandalam", "Udumalpet", "Vellore", "Villupuram", "Virudhunagar", "Adilabad", "Hyderabad", "Karimnagar", "Khammam", "Mahboob Nagar", "Nalgonda", "Nizamabad", "Ramagundam", "Ranga Reddy District", "Secunderabad", "Warangal", "Agartala", "North Tripura", "Suryamaninagar", "Agra", "Aligarh", "Ambedkar Nagar", "Auraiya", "Azamgarh", "Badayu", "Bagpat", "Bahraich", "Ballia", "Balrampur", "Banda", "Barabanki", "Bareilly", "Basti", "Bhadohi", "Bijnor", "Budaun", "Bulandshahar", "Chandauli", "Chitrakoot", "Deoria", "Etah", "Etawah", "Faizabad", "Farrukhabad", "Fatehpur", "Firozabad", "Gajraula", "Gautam Buddha Nagar", "Ghaziabad", "Ghazipur", "Gonda", "Gorakhpur", "Hamirpur", "Hapur", "Hardoi", "Hathras", "Jalaun", "Jaunpur", "Jhansi", "Jyotiba Phule Nagar", "Kannauj", "Kanpur", "Kashipur", "Kaushambi", "Kheri", "Khurja", "Kushinagar", "Lakhimpur", "Lalitpur", "Lucknow", "Maharajganj", "Mahoba", "Mainpuri", "Mathura", "Mau", "Meerut", "Mirzapur", "Modinagar", "Moradabad", "Muzaffarnagar", "Noida", "Pilibhit", "Pratapgarh", "Prayagraj", "RaeBareli", "Rampur", "Saharanpur", "Sahibabad", "Sant Ravidas Nagar", "Shahjahanpur", "Shamli", "Siddharthnagar", "Sikandarabad", "Simbhaoli", "Sitapur", "Sonbhadra", "Sultanpur", "Surajpur", "Unnao", "Varanasi", "Almora", "Bageshwar", "Chamoli", "Champawat", "Dehradun", "Garhwal", "Haldwani", "Haridwar", "Mussoorie", "Nainital", "Pauri", "Pithoragarh", "Rishikesh", "Roorkee", "Rudraprayag", "Tehri Garhwal", "Udham Singh Nagar", "Uttarkashi", "24 North Parganas", "24 South Parganas", "Asansol", "Balurghat", "Bankura", "Bardhaman", "Birbhum", "Burdwan", "Cooch Behar", "Darjeeling", "Dinajpur", "Durgapur", "Hooghly", "Howrah", "Jalpaiguri", "Kalimpong", "Kalyani", "Kharagpur", "Kolkata", "Krishnagar", "Malda", "Midnapore", "Murshidabad", "Nadia", "Puruliya", "Raiganj", "Raniganj", "Santiniketan", "Siliguri"];
+
+    $("#locfrom").autocomplete({
+    	source: mycities
+    },
+{});

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add and Minus</title>
+</head>
+<body>
+    num1 <input type="text" id="num1"><br>
+    num2 <input type="text" id="num2"><br>
+    <button id="add">Add</button>
+    <button id="minus">Minus</button><br>
+    output <input type="text" id="output">
+</body>
+    <script>
+        let num1=document.getElementById("num1")
+        let num2=document.getElementById("num2")
+        let add=document.getElementById("add")
+        let minus=document.getElementById("minus")
+        let output=document.getElementById("output")
+        add.addEventListener("click",()=>{
+            output.value=Number(num1.value)+Number(num2.value)
+        })
+        minus.addEventListener("click",()=>{
+            output.value=Number(num1.value)-Number(num2.value)
+        })
+    </script>
+</html>

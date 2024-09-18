@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: sans-serif;
+        }
+        body{
+            background-color: darkblue;
+            height: 100vh;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            color: white;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+        <h2 id="output"> 07:30:20 PM </h2>
+</body>
+<script>
+    // class Pradeep {
+    //     ws() {
+    //         return "welcome to ws"
+    //     }
+    // }
+
+    // let obj=new Pradeep()
+
+    // console.log(obj.ws())
+  let outputH2=document.querySelector("#output")  
+let getDClock=()=>{
+    
+    let currentDate=new Date();
+
+   let currentHours=  currentDate.getHours() > 12 ? currentDate.getHours()-12 : currentDate.getHours()
+   
+   let type=  currentDate.getHours() > 12 ? "PM" : "AM"
+   
+   let Minutes=currentDate.getMinutes()
+
+   let Seconds=currentDate.getSeconds()
+                //07 :  52 : 25 PM          
+   console.log(currentHours,type,Minutes,Seconds)
+
+   outputH2.innerHTML= 
+     (currentHours<10 ? "0"+currentHours : currentHours  )
+     +
+     ":"
+     +  (Minutes<10 ? "0"+Minutes : Minutes )
+     +
+     ':'
+     +  
+     (Seconds<10 ? "0"+Seconds : Seconds )
+     +
+     " "
+     +type
+}
+
+// setInterval( getDClock,1000 )
+
+
+// // getDClock()
+
+
+
+
+// let finalSecond=300000;
+
+
+// let s=500/60;
+// console.log(Math.floor(s))
+// let finalSecond= (500%60)
+// console.log(finalSecond) 
+
+let onMinSeconds=60;
+let oneHourSeconds=3600;
+let oneDaySeconds=86400;
+
+
+
+let finalSecond=300000;
+
+let finalDays= Math.floor(finalSecond /oneDaySeconds)
+                //2,59,200  
+//
+console.log(finalDays)  //2,59,200  
+
+let remSecondAfterDays=  finalSecond%oneDaySeconds
+console.log(remSecondAfterDays) //40800  
+
+let Finalhours= Math.floor(remSecondAfterDays/oneHourSeconds);
+//39,600
+
+console.log(Finalhours)
+
+
+
+
+
+
+
+
+
+ 
+</script>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <h1>Movie App</h1>
+    <div class="Form">
+        <input placeholder="search by name" type="text">
+    </div>
+    <div class="movieDiv">
+
+
+    </div>
+</body>
+<script>
+    // let l=[10,20,30,40,50,99]
+
+    // let [a,...b]=l;
+    // console.log(a,b)
+
+    // let l=[1,2,3,4]
+
+    // let m=[...l];
+
+    // console.log(l)
+    // console.log(m)
+
+    // m.push(5)
+
+    // console.log(l) //[1,2,3,4]
+    // console.log(m) //[1,2,3,4,5]
+
+
+    // let obj={
+    //     'name':'pradeep',
+    //     'cname':'ws',
+    //     'email':'ws@gmail.com'
+    // }
+
+    // let {cname}=obj
+
+    // console.log(cname,email)
+    // console.log(obj['cname'])
+    let apiUrl
+    let movieDivElement=document.querySelector(".movieDiv")
+    let getMovieList = async () => {
+
+        let imageStaticUrl = `https://image.tmdb.org/t/p/w1280`
+
+        apiUrl = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1`
+
+        let apiData = await fetch(apiUrl)
+
+        let finalData = await apiData.json();
+
+        let { results } = finalData;
+
+        let displayData = ''
+
+        results.forEach((arrayObj) => {
+            let { original_title, overview, release_date, poster_path } = arrayObj;
+
+            displayData+= `<div class="movieItems">
+                <img src="${imageStaticUrl+poster_path}" alt="">
+                <h3>${original_title} | ${release_date}</h3>
+            </div>`
+        })
+
+        movieDivElement.innerHTML=displayData
+        
+
+
+    }
+
+
+    getMovieList()
+
+
+    //   let r=[
+    //     {
+    //         'title':'pradeep'
+    //     },
+    //     {
+    //         'title':'Ravi'
+    //     }
+    //   ]
+
+    //   r.forEach((value)=>{
+    //     console.log(value)
+    //   })
+
+    //   {
+    //         'title':'pradeep'
+    //     },
+    // {
+    //         'title':'Ravi'
+    //     }
+
+</script>
+
+</html>

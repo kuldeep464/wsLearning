@@ -1,0 +1,428 @@
+@media only screen and (min-width:200px) and (max-width:575px) {
+    .whatsappiconfixed {
+        display: none;
+    }
+
+    .bodybottombtnfixed {
+        display: flex;
+    }
+
+    .bookbtnfxd button {
+        padding: 4px 9px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+    }
+
+    .chatfixed {
+        bottom: 15%;
+    }
+
+    .headerTop>:nth-child(1) {
+        display: none;
+    }
+
+    .headerTop {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .headerinput {
+        order: 2;
+        width: 80%;
+    }
+
+    .headerinput input {
+        width: 100%;
+    }
+
+    .headersocial {
+        order: 1;
+        flex-direction: column;
+    }
+
+    .socialMain {
+        gap: 20px;
+    }
+
+    .headerBottom>nav {
+        display: none;
+    }
+
+    .headerBottom>button {
+        display: none;
+    }
+
+    .headerBottom>a {
+        width: 80%;
+    }
+
+    .headerBottomBar {
+        display: inline;
+    }
+
+    .bannercontent {
+        flex-direction: column;
+        padding: 0px 10px;
+        gap: 20px;
+    }
+
+    .bannercontent>div {
+        width: calc(100% - 40px);
+    }
+
+    .bannercontent>div h2 {
+        font-size: 21px;
+        line-height: 26px;
+    }
+
+    .servicesarrows {
+        position: static;
+        transform: translateX(0);
+    }
+
+    .servicesslider {
+        flex-wrap: wrap;
+    }
+
+    .servicesslider>div {
+        width: 48%;
+        margin-bottom: 10px;
+    }
+
+    .hideinmobile {
+        display: none !important;
+    }
+
+    .servicesbtn {
+        padding-top: 20px;
+    }
+
+    .welcomeMid {
+        flex-direction: column;
+    }
+
+    .welcomeMid>figure {
+        width: 100%;
+    }
+
+    .welcomeContent {
+        width: 100%;
+    }
+
+    .welcomeContent h1 {
+        text-align: center;
+    }
+
+    .welcomeContent p {
+        text-align: center;
+    }
+
+
+    .ourspecialistMid h1 {
+        font-size: 25px;
+        line-height: 32px;
+        font-weight: 700;
+        padding: 15px 0px;
+    }
+
+    .ourspecialistContent {
+        flex-direction: column;
+    }
+
+    .ourspecialistContent>div {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .storiesBlueMid {
+        text-align: center;
+    }
+
+    .storiesBlueMid h4 {
+        padding: 15px 0px;
+    }
+
+    .storiesBlueMid h1 {
+        font-size: 25px;
+        line-height: 32px;
+    }
+
+    .storiesSlider {
+        flex-direction: column;
+    }
+
+    .storiesSlider>div {
+        width: calc(100% - 40px);
+    }
+
+    .googleDiv {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .googleDiv>span {
+        text-align: center;
+        color: white;
+    }
+
+    .storiesBlue {
+        height: 45vh;
+    }
+
+    .storiesGray {
+        height: 90vh;
+    }
+
+    .storiesGrayMid {
+        bottom: 0%;
+    }
+
+
+    .testimonialHeading h1 {
+        font-size: 27px;
+        line-height: 38px;
+        padding-bottom: 20px;
+    }
+
+    .youtubevideos{
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .youtubeContent{
+        width: 100%;
+    }
+
+    .youtubeContent::after{
+        z-index: -1;
+        background-color: transparent;
+    }
+
+    .formSection{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .formSection>div{
+        width: 100%;
+        text-align: center;
+    }
+
+    .formContent h1{
+        font-size: 27px;
+        line-height: 38px;
+        width: 100%;
+    }
+
+    fieldset{
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    form{
+        text-align: start;
+    }
+
+    form h2{
+        text-align: center;
+    }
+
+    .whytopMid>p{
+        width: 100%;
+    }
+
+    .whytopitag{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .whytopitag>div {
+        width: 90%;
+        border: 1px solid #ccc;
+       border-radius: 10px;
+    }
+
+    .whytopitag>div i {
+        font-size: 45px;
+    }
+
+    .whybottomMid h1{
+        font-weight: 700;
+        font-size: 27px;
+        line-height: 38px;
+        color: var(--maincolor);
+    }
+
+    .footerMid{
+        flex-direction: column;
+        padding: 15px 10px;
+    }
+
+    .footerMid>div{
+        width: 100%;
+    }
+
+    .footerSocial {
+        justify-content: center;
+    }
+
+    .footercopyright{
+        padding-bottom: 50px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width:576px) and (max-width:992px) {
+    .headerTop {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .headerinput {
+        width: 80%;
+    }
+
+    .headerinput input {
+        width: 100%;
+    }
+
+    .socialMain {
+        gap: 20px;
+    }
+
+    .headerBottom{
+        justify-content: space-around;
+    }
+
+    .headerBottom>nav {
+        display: none;
+    }
+
+    .headerBottom>button {
+        display: none;
+    }
+
+    .headerBottom>a {
+        width: 40%;
+    }
+
+    .headerBottomBar {
+        display: inline;
+    }
+
+    .ourspecialistContent {
+        justify-content: space-around;
+    }
+
+    .ourspecialistContent>div {
+        width: 48%;
+    }
+
+    .hideinTab {
+        display: none !important;
+    }
+
+    .storiesBlue {
+        height: 50vh;
+    }
+
+    .storiesGray {
+        height: 85vh;
+    }
+
+    .googleDiv {
+        width: 95%;
+        margin: auto;
+        gap: 30px;
+        text-align: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .storiesBlueMid h1 {
+        font-size: 32px;
+        line-height: 37px;
+        text-align: center;
+    }
+
+    .storiesBlueMid h4 {
+        text-align: center;
+    }
+
+    .googleDiv>span {
+        text-align: center;
+    }
+
+    .youtubevideos{
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .youtubeContent{
+        width: 70%;
+    }
+
+    .youtubeContent::after{
+        z-index: -1;
+        background-color: transparent;
+    }
+    
+    .formSection{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .formSection>div{
+        width: 100%;
+        text-align: center;
+    }
+
+    .formContent h1{
+        font-size: 35px;
+        line-height: 47px;
+        width: 100%;
+    }
+
+    form{
+        text-align: start;
+    }
+
+    form h2{
+        text-align: center;
+    }
+
+    .whytopitag{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .whytopitag>div {
+        width: 90%;
+        border: 1px solid #ccc;
+       border-radius: 10px;
+    }
+
+    .footerMid{
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 25px 10px;
+    }
+
+    .footerMid>div{
+        width: 40%;
+    }
+
+
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: rgb(63, 94, 251);
+            background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+        }
+
+        .main {
+            width: 600px;
+            margin: auto;
+            /* background-color: beige; */
+            padding: 20px;
+        }
+
+        .main h3 {
+            text-align: center;
+            color: white;
+            font-size: 26px;
+        }
+
+        input {
+            width: 83%;
+            padding: 10px;
+        }
+
+        .row button {
+            padding: 10px 20px;
+
+        }
+
+        .outputDiv ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .outputDiv ul li {
+            background-color: beige;
+            margin: 10px 0px;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .outputDiv ul li span {
+            background-color: rgb(168, 230, 230);
+            padding: 5px;
+            position: absolute;
+            right: 20px;
+            top: 0px;
+            cursor: pointer;
+        }
+
+        .activeLi {
+            background-color: red !important;
+            color: white;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h3> To Do App </h3>
+        <div class="row">
+            <input type="text" placeholder="enter your to-do">
+            <button>Add</button>
+        </div>
+        <div class="outputDiv">
+            <ul>
+
+
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script>
+    let myInput = document.querySelector("input")
+    let btn = document.querySelector("button")
+    let mainUl = document.querySelector("ul")
+
+    btn.addEventListener("click", () => {
+        let inputValue = myInput.value;
+
+        let newLi = document.createElement("li");
+        newLi.innerHTML = inputValue;
+        mainUl.append(newLi)
+        myInput.value = "";
+
+        //////////////////////////////////////////
+        let mySpan = document.createElement("span")
+        mySpan.innerHTML = "X";
+        newLi.append(mySpan)
+
+        ///////////////////////////////////////// li remove work
+        mySpan.onclick = () => {
+            newLi.remove()
+        }
+
+        //////////////////////////////////////////
+        newLi.onclick = () => {
+            newLi.classList.toggle("activeLi")
+        }
+
+    })
+
+
+
+</script>
+
+</html>

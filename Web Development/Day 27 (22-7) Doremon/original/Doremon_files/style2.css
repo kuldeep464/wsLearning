@@ -1,0 +1,161 @@
+body{
+	background-color: black;
+}
+.main
+{
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	padding-top: 100px;
+}
+.face
+{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-color: blue;
+	margin: auto;
+}
+.eye
+{
+	width: 30px;
+	height: 45px;
+	border-radius: 50%;
+	background-color: white;
+	position: relative;
+	left: 45px;
+	top: 50px;
+}
+.eyeinner
+{
+	width: 10px;
+	height: 18px;
+	border-radius: 50%;
+	background-color: black;
+	position: relative;
+	left: 10px;
+	top: 25px;
+}
+.eyeinner1
+{
+	width: 2px;
+	height: 6px;
+	border-radius: 50%;
+	background-color: white;
+	position: relative;
+	left: 4px;
+	top: 8px;
+}
+.nose
+{
+	width: 25px;
+	height: 15px;
+	border-radius: 50%;
+	background-color: red;
+	position: relative;
+	left: 80px;
+	top: 20px;
+}
+.mouth
+{
+	width: 50px;
+	height: 30px;
+	border-radius: 0px 0px 30px 30px;
+	background-color: white;
+	position: relative;
+	left: 70px;
+	top: 35px;
+}
+.tounge
+{
+	width: 30px;
+	height: 20px;
+	border-radius: 0px 0px 20px 20px;
+	background-color: red;
+	margin: auto;
+}
+.neck
+{
+	width: 85px;
+	height: 20px;
+	border-radius: 10px 10px;
+	background-color: red;
+	position: absolute;
+	left: 50px;
+	top:-10px;
+}
+.goldbadge
+{
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: gold;
+	margin: auto;
+}
+.bodypart
+{
+	width: 200px;
+	height: 250px;
+	background-color: blue;
+	margin: auto;
+	border-radius: 40px 40px 0px 0px;
+	position: relative;
+	bottom: 10px;
+}
+.pocket
+{
+	width: 100px;
+	height: 50px;
+	border-radius: 0px 0px 50px 50px;
+	background-color: white;
+	margin: auto;
+	position: relative;
+	top: 80px;
+}
+.hand1
+{
+	width: 40px;
+	height: 100px;
+	background-color: blue;
+	position: relative;
+	border-radius: 40px 40px 0px 0px;
+	right: 25px;
+	bottom: 30px;
+}
+.handcircle
+{
+	width: 40px;
+	height: 40px;
+	background-color: white;
+	position: relative;
+	border-radius: 50%;
+	top: 80px;
+	right: 2px;
+}
+.hand2
+{
+	width: 100px;
+	height: 40px;
+	background-color: blue;
+	position: relative;
+	left: 185px;
+	bottom: 120px;
+}
+.legspace
+{
+	width: 3px;
+	height: 68px;
+	background-color: lightgray;
+	position: relative;
+	left: 95px;
+}
+.feet
+{
+	width: 110px;
+	height: 40px;
+	background-color: white;
+	position: relative;
+	border-radius: 40px 40px 40px 40px;
+	bottom: 30px;
+	right: 10px;
+}

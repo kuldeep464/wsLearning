@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let indianNames=["Arjun","Vinita","Ravi","Nisha","Ishan","Priya","Veer","Siddharth","Anika","Karan","Ayesha","Rahul","Uma","Vikram","Neha","Deepak","Kavita","Aditya","Divya","Rohan"]
+    let newArray=[]
+    function namesFilter(){
+        for(let v of indianNames){
+            if(v[0]=="A" || v[0]=="E" || v[0]=="I" || v[0]=="O" || v[0]=="U" && v.length>5){
+                newArray.push(v)
+            }
+            // if(v.length>5){
+            //     newArray.push(v)
+            // }
+        }
+    }
+    namesFilter()
+    console.log(newArray)
+</script>
+</html>

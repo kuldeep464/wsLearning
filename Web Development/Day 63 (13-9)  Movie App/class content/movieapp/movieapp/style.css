@@ -1,0 +1,38 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.movieDiv{
+    width: 1320px;
+    margin: auto;
+    flex-wrap: wrap;
+    display: flex;
+}
+.Form{
+    width: 1320px;
+    margin: auto;
+}
+
+.Form input{
+    width: 100%;
+    text-align: left;
+    height: 40px;
+}
+h1{
+    padding: 20px 0px;
+}
+
+.movieItems{
+    flex-basis: 23%;
+    background-color: aqua;
+    margin: 1%;
+}
+.movieItems img{
+    width: 100%;
+}
+.movieItems h3{
+    padding: 10px;
+}

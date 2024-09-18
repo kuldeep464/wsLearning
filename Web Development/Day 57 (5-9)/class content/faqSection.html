@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: sans-serif;
+        }
+        .main {
+            width: 1320px;
+            margin: auto;
+
+        }
+        h1{
+            text-align: center;
+            padding: 50px 0px;
+        }
+        .faqItems{
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .faqItems h2{
+            background-color: purple;
+            color: white;
+            font-size:18px;
+            position: relative;
+            padding: 10px;
+        }
+        .faqItems h2 span{
+            position: absolute;
+            right: 10px;
+        }
+        .ans{
+            font-size: 18px;
+            line-height: 30px;
+            overflow: hidden;
+            transition: 0.5s ;
+            max-height:0px ;
+            transform-origin: top;
+            transform: scaleY(0);
+            
+        }
+
+        .ansShow{
+            overflow: visible;
+            padding: 10px;
+            max-height: 500px;
+            transform: scaleY(1);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Frequently Asked Questions (FAQ's)</h1>
+
+    <div class="main">
+        <div class="faqItems">
+            <h2>
+               1 Can I customize my India Holiday Package? <span>-</span>
+            </h2>
+            <div class="ans ansShow">
+                Yes sure, we can customize your India holiday package as per your interest and preferences. Just contact
+                us and share your interest with us.
+                Yes sure, we can customize your India holiday package as per your interest and preferences. Just contact
+                us and share your interest with us.
+            </div>
+        </div>
+        <div class="faqItems">
+            <h2>
+               2 Can I customize my India Holiday Package?  <span>+</span>
+            </h2>
+            <div class="ans">
+                Yes sure, we can customize your India holiday package as per your interest and preferences. Just contact
+                us and share your interest with us.
+                Yes sure, we can customize your India holiday package as per your interest and preferences. Just contact
+                us and share your interest with us.
+            </div>
+        </div>
+        <div class="faqItems">
+            <h2>
+               3 Can I customize my India Holiday Package?  <span>+</span>
+            </h2>
+            <div class="ans">
+                Yes sure, we can customize your India holiday package as per your interest and preferences. Just contact
+                us and share your interest with us.
+            </div>
+        </div>
+        <div class="faqItems">
+            <h2>
+               4 Can I customize my India Holiday Package?  <span>+</span>
+            </h2>
+            <div class="ans">
+                Yes sure, we can customize your India holiday package as per your interest and preferences. Just contact
+                us and share your interest with us.
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    // let l=[10,20,30]
+
+    // l.forEach((v,i)=>{
+    //     console.log(v,i)
+    // })
+    
+     let allQuestion=document.querySelectorAll(".faqItems h2")
+
+     allQuestion.forEach(( element,index )=>{
+
+        element.addEventListener("click",()=>{
+            element.nextElementSibling.classList.toggle("ansShow")
+            if(element.lastElementChild.innerHTML=="+"){
+                   element.lastElementChild.innerHTML="-"
+            }
+            else{
+                element.lastElementChild.innerHTML="+"
+            }
+           
+         
+            // console.log(element.lastElementChild)
+
+            // element.lastChild.innerHTML="-"
+
+            allQuestion.forEach((el,elIndex)=>{
+                if(index!=elIndex){
+                   el.nextElementSibling.classList.remove('ansShow')
+                   el.lastElementChild.innerHTML="+"
+                   
+
+                }
+                
+            })   
+
+        })
+
+     })
+    
+
+    // let l=[10,20,30,40]
+    // l.forEach((v,i)=>{
+    //     if(i!=1){
+    //         console.log(v)
+    //     }
+    // })
+</script>
+
+</html>

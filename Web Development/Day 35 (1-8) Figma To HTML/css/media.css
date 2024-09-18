@@ -1,0 +1,558 @@
+@media only screen and (min-width:200px) and (max-width:575px) {
+
+    
+    body {
+        padding-bottom: 50px;
+    }
+
+    .headerMid {
+        flex-direction: column;
+        padding: 5px 0px;
+    }
+
+    .headerBtns {
+        position: fixed;
+        bottom: 0px;
+        /* background-color: white; */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        z-index: 9;
+        gap: 0;
+    }
+
+    .headerwtspbtn , .headercallbtn {
+        flex-basis: 50%;
+    }
+
+    .headerwtspbtn {
+        background-color: white;
+    }
+
+    .headerMid figure img {
+        width: 120px;
+        height: 40px;
+    }
+
+    .formMid {
+        flex-direction: column;
+    }
+
+    .formContent h1 {
+        font-size: 25px;
+        line-height: 35px;
+        text-align: center;
+        padding-bottom: 15px;
+    }
+
+    .formContent h1 span {
+        background: none;
+    }
+
+    .formContent p {
+        font-size: 17px;
+        line-height: 25px;
+        text-align: center;
+    }
+
+    .formContent ul {
+        width: 80%;
+        margin: auto;
+    }
+
+    .formContent ul li {
+        font-size: 14px;
+    }
+
+    .formcontentbtns {
+        flex-direction: column;
+        gap: 10px;
+        width: 80%;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .formBookbtn {
+        font-size: 18px;
+        line-height: 20px;
+        padding: 10px 30px;
+    }
+
+    .formdownloadbtn {
+        font-size: 17px;
+        line-height: 19px;
+        padding: 10px 30px;
+    }
+
+    .formSection fieldset {
+        width: 80%;
+        margin: auto;
+        padding: 10px;
+    }
+    
+    /* .formmobno select{
+        width: 15%;
+    } */
+
+    .formmobno input{
+        width: 85%;
+    }
+    
+    .fbi1 {
+        padding: 30px 0px;
+    }
+
+    .formbottomitems {
+        width: 60%;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+
+    .keyhighlightsMid {
+        width: 90%;
+        margin: auto;
+    }
+
+    .keyhighlightsMid>h4 {
+        font-size: 23px;
+        text-align: center;
+    }
+
+    .keyhighlightsMid>p {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .keyhighlightsItemsInner img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .keyhighlightsItemsInner {
+        margin: 10px auto;
+        width: 80%;
+        box-sizing: border-box;
+    }
+
+    .keyhighlightsItemsInner h4 {
+        font-size: 18px;
+        line-height: 23px;
+    }
+
+    .keyhighlightsbookbtn button {
+        padding: 8px 24px;
+        border-radius: 6px;
+        box-shadow: 0px 3px 12px 2px #2699FB;
+        font-size: 19px;
+        line-height: 26px;
+    }
+
+    .carroptdigimarkItems {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .carroptdigimarkheading h3 {
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 34px;
+        padding-bottom: 10px;
+    }
+
+    .carroptdigimarkItems>div {
+        width: 80%;
+        margin: auto;
+        align-items: center;
+    }
+
+    .certificateMid {
+        flex-direction: column;
+        width: 85%;
+        margin: auto;
+        padding: 20px 0px;
+    }
+
+    .certificateContent>h1 {
+        font-size: 25px;
+        line-height: 35px;
+        text-align: center;
+    }
+
+    .certificateContent>p {
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .certificateBookBtn {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .certificateBookBtn button {
+        padding: 10px 30px;
+        font-size: 18px;
+    }
+
+    .certificateMain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 0px;
+    }
+
+    .certificateMain img {
+        width: 90%;
+    }
+
+
+    .curriculumMid>h1 {
+        font-size: 28px;
+        line-height: 37px;
+    }
+
+    .curriculumMid>ul>li {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .curriculumMid>ul>li::after {
+        content: '+';
+    }
+
+
+    .curriculumMid>ul {
+        flex-direction: column;
+    }
+
+    .curriculumSubmenu {
+        display: none;
+    }
+
+    .curriculumMidPresent::after {
+        content: '-' !important;
+    }
+
+    .curriculumBtn{
+        margin-top: 10px;
+    }
+
+    .curriculumBtn button {
+        padding: 10px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+    }
+
+    .whydigiMid h1 {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 36px;
+        text-align: center;
+    }
+        
+    .whydigiMid>p {
+        font-size: 17px;
+        font-weight: 400;
+        text-align: center;
+        line-height: 26px;
+        margin-bottom: 30px;
+    }
+
+    .whydigiMid>div {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .whydigiItems {
+        width: 80%;
+        margin: auto;
+        align-items: center;
+        text-align: center;
+    }
+
+    .whydigibtn button {
+        padding: 10px 30px;
+        font-size: 18px;
+        margin: 20px auto;
+    }
+
+    .commentMid>div {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .commentMid>h1{
+        font-size: 27px;
+        line-height: 39px;
+    }
+
+    .commentItems {
+        gap: 20px;
+    }
+
+    .commentItemstop {
+        justify-content: center;
+    }
+
+    .commentItemsBottom {
+        text-align: center;
+    }
+
+    .commentBookContent {
+        width: 80%;
+        margin: auto;
+    }
+
+    .commentBookContent h2 {
+        font-size: 30px;
+        line-height: 41px;
+    }
+
+    .commentBookContent p {
+        font-size: 16px;
+        line-height: 27px;
+    }
+
+    .commentBookContent button {
+        padding: 10px 25px;
+        font-size: 18px;
+        margin: 20px auto;
+    }
+
+    .FAQMid {
+        max-width: 740px ;
+        margin: auto;
+        padding: 20px 15px;
+    }
+
+    .FAQMid>h1{
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 39px;
+        text-align: center;
+        padding-bottom: 10px ;
+    }
+
+    .FAQMid>p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: center;
+        margin-bottom: 15px;
+        }
+        
+
+    .FAQBtn button{
+        padding: 10px 25px;
+        font-size: 18px;
+    }
+
+    .topCompaniesMid h2{
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 33px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+
+}
+
+@media only screen and (min-width:576px) and (max-width:992px) {
+    .headerMid {
+        width: 90%;
+        margin: auto;
+    }
+
+    .formMid {
+        flex-direction: column;
+    }
+
+    .formContent {
+        width: 90%;
+        margin: auto;
+
+    }
+
+    .formContent h1,
+    p {
+        text-align: center;
+    }
+
+    .formContent ul {
+        width: 90%;
+        margin: auto;
+    }
+
+    .formcontentbtns {
+        width: 100%;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .formBookbtn {
+        font-size: 18px;
+        line-height: 20px;
+        padding: 10px 30px;
+    }
+
+    .formdownloadbtn {
+        font-size: 17px;
+        line-height: 19px;
+        padding: 10px 30px;
+    }
+
+    .formSection fieldset {
+        width: 85%;
+        margin: auto;
+        padding: 10px;
+    }
+
+    .fbi1 {
+        padding: 30px 0px;
+        width: 174px;
+        /* border: 1px solid red; */
+    }
+
+    .fbi1 p {
+        text-align: start;
+    }
+
+    .formbottomitems {
+        width: 80%;
+        margin: auto;
+    }
+
+    .keyhighlightsMid {
+        width: 90%;
+        margin: auto;
+    }
+
+    .keyhighlightsMid p {
+        text-align: start;
+    }
+
+    .keyhighlightsItemsInner {
+        margin: 10px auto;
+    }
+
+    .keyhighlightsMid>h4,
+    .keyhighlightsMid>p {
+        text-align: center;
+    }
+
+    .keyhighlightsbookbtn button {
+        padding: 12px 36px;
+        border-radius: 7px;
+        box-shadow: 0px 3px 12px 2px #2699FB;
+        font-size: 19px;
+        line-height: 26px;
+    }
+
+    .carroptdigimarkItems {
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .carroptdigimarkItems>div {
+        flex-basis: 40%;
+        margin: auto;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+
+    .certificateMid {
+        flex-direction: column;
+        width: 85%;
+        margin: auto;
+        padding: 15px 0px;
+    }
+
+    .certificateContent>h1 {
+        font-size: 27px;
+        line-height: 39px;
+        text-align: center;
+    }
+
+    .certificateContent>p {
+        font-size: 18px;
+        line-height: 27px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .certificateItems p {
+        text-align: start;
+    }
+
+    .certificateBookBtn {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .certificateBookBtn button {
+        padding: 10px 30px;
+        font-size: 18px;
+    }
+
+    .certificateMain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 0px;
+    }
+
+    .certificateMain img {
+        width: 90%;
+    }
+
+    .curriculumBtn{
+        margin-top: 450px;
+    }
+
+    .whydigiMid h1 {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 38px;
+        text-align: center;
+    }
+        
+    .whydigiMid>p {
+        font-size: 18px;
+        font-weight: 400;
+        text-align: center;
+        line-height: 27px;
+        margin-bottom: 30px;
+    }
+
+    .whydigiItems p {
+        text-align: start;
+    }
+
+    .whydigiItems {
+        flex-basis: 42%;
+        margin: auto;
+        text-align: start;
+        margin-bottom: 20px;
+    }
+
+    .whydigibtn button {
+        padding: 10px 30px;
+        font-size: 18px;
+    }
+    
+    .commentItemsBottom p {
+        text-align: start;
+    }
+
+}

@@ -1,0 +1,345 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    /* list-style: none; */
+    font-family: Assistant, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+    box-shadow: 0px 1px 10px 0px gray;
+    position: sticky;
+    top: 0px;
+    background-color: white;
+}
+
+hr {
+    color: gray;
+    width: 1170px;
+    margin: auto;
+}
+
+.headerMid {
+    max-width: 1320px;
+    margin: auto;
+    padding: 10px 0px;
+    /* border: 1px solid red; */
+    display: flex;
+    position: relative;
+}
+
+.headerChild {
+    flex-grow: 1;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-left: 20px;
+}
+
+.headerChild img {
+    height: 50px;
+}
+
+.headerChild ul {
+    display: flex;
+    gap: 30px;
+    margin-left: 30px;
+    list-style: none;
+}
+
+.headerChild ul a {
+    color: rgb(54, 54, 54);
+    font-weight: bold;
+    /* line-height: 40px; */
+    /* position: relative; */
+}
+
+.headerChild ul>li>a {
+    line-height: 50px;
+}
+
+.headerChild ul li:hover{
+    border-bottom: 2px solid red;
+}
+
+
+
+.headerChild ul a sup {
+    position: absolute;
+    bottom: 20px;
+}
+
+.subMenu {
+    width: 80vw;
+    height: 65vh;
+    /* margin: auto; */
+    position: absolute;
+    border: 1px solid #ccc;
+    display: none;
+    top: 85%;
+    left: 5%;
+    background-color: #ebebeb;
+    padding: 20px 30px;
+  
+}
+
+.submenuSection{
+    display: flex;
+    justify-content: space-between;
+}
+
+.submenuItems h5 a{
+    line-height: 50px;
+    color: red;
+}
+
+.submenuItems p a {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.submenuItems p:hover a{
+    font-weight: 700;
+}
+
+.headerChild ul li:hover .subMenu {
+    display: block;
+}
+
+.searchDiv input {
+    width: 420px;
+    padding: 5px 15px;
+    /* font-size: 18px; */
+    background-color: rgb(247, 247, 247);
+    border: 0.1px solid rgb(231, 231, 231);
+    border-radius: 2px;
+}
+
+.searchDiv input:focus {
+    outline: none;
+}
+
+.headerProfile {
+    display: flex;
+    gap: 20px;
+    margin-left: 30px;
+    /* align-items: center; */
+
+}
+
+.headerProfile a,
+i {
+    color: black;
+}
+
+/* .headerProfile i {
+    margin-left: 10px;
+} */
+
+.ProfileItems {
+    text-align: center;
+    /* display: flex; */
+}
+
+section {
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.section2Mid {
+    /* width: 1320px; */
+    width: 95%;
+    margin: auto;
+}
+
+.flat400 {
+    width: 100%;
+}
+
+.flat400 img {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.superSaverSaleDiv {
+    /* width: 1320px; */
+    width: 100%;
+    display: flex;
+}
+
+.superSaverSaleDiv>div {
+    flex-basis: 50%;
+}
+
+.superSaverSaleDiv img {
+    width: 100%;
+}
+
+.section3Mid {
+    width: 95%;
+    /* width: 1320px; */
+    margin: auto;
+}
+
+
+.section3Mid :nth-child(1) {
+    width: 100%;
+}
+
+.section3Mid :nth-child(1) img {
+    width: 95%;
+}
+
+
+.section3Mid :nth-child(2) {
+    width: 100%;
+    display: flex;
+}
+
+.section3Mid :nth-child(2) img {
+    width: 95%;
+}
+
+.omgDealDiv {
+    width: 100%;
+    margin: auto;
+}
+
+.omgDealDiv img {
+    width: 100%;
+}
+
+.omgDealItems {
+    width: 100%;
+    display: flex;
+    margin: auto;
+}
+
+.omgDealItems>div {
+    flex-basis: 25%;
+}
+
+.omgDealItems>div img {
+    width: 100%;
+}
+
+.section5Mid {
+    width: 95%;
+    margin: auto;
+}
+
+.section5Mid:first-child {
+    width: 100%;
+}
+
+
+.section5Mid:first-child img {
+    width: 100%;
+}
+
+.section5Items {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.section5Items>div {
+    flex-basis: 16.5%;
+}
+
+.section5Mid:last-child {
+    width: 100%;
+}
+
+.section6Mid {
+    /* width: 90%; */
+    width: 1170px;
+    padding: 30px 50px;
+    margin: auto;
+    display: flex;
+    gap: 50px;
+    /* text-align: center; */
+}
+
+
+.section6Mid h5 {
+    margin: 15px 0px;
+}
+
+.apps img {
+    height: 50px;
+    width: 130px;
+}
+
+.keepInTouch img {
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+}
+
+.originalReturn {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.originalReturn img {
+    height: 50px;
+    width: 50px;
+    margin: 0px 20px;
+}
+
+.section6Mid a {
+    color: gray;
+}
+
+.section7Mid {
+    width: 1170px;
+    margin: auto;
+    color: gray;
+}
+
+.section7Mid a {
+    color: gray;
+}
+
+.section7Mid h5 {
+    margin: 15px 0px;
+    color: black;
+}
+
+.popularSearchesBottom {
+    margin: 40px 0px 15px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.popularSearchesBottom a {
+    font-weight: bold;
+    color: rgb(65, 109, 255);
+}
+
+.popularSearchesBottom p {
+    color: gray;
+}
+
+.registeredOfficeAddress {
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.registeredcontact {
+    align-self: flex-end;
+}
+
+.list {
+    width: 1120px;
+    margin: auto;
+}
+
+.list li {
+    margin: 20px 0px;
+}

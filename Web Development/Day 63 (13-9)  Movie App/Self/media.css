@@ -1,0 +1,12 @@
+@media only screen and (min-width:200px) and (max-width:575px){
+    .movieItems{
+        flex-basis: 48%;
+    }
+    .searchBox input{
+        margin-bottom: 30px;
+    }
+
+    h1{
+        margin-top: 15px;
+    }
+}

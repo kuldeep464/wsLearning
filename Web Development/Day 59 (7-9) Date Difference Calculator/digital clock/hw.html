@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let oneminute= 60
+    let onehour=oneminute*60
+    let oneday=onehour*24
+    let totalseconds=300000
+    let totalday= Math.floor(totalseconds/oneday)
+    let remainingsecforhour= totalseconds % oneday
+    let totalhour= Math.floor(remainingsecforhour/onehour)
+    let remainingsecforminutes= totalseconds %  onehour
+    let totalminute=Math.floor(remainingsecforminutes/oneminute)
+    let remainingseconds=totalseconds % oneminute
+    
+    console.log (` ${totalday} " Days " ${totalhour} "Hours" ${totalminute} "Minutes" ${remainingseconds} "Seconds"`)
+</script>
+</html>

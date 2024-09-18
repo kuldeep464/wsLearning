@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .main{
+            width: 1320px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .items{
+            flex-basis: 23%;
+            margin: 1%;
+        }
+        .items img{
+            width: 100%;
+        }
+
+        .lightBoxOverLay{
+            position: fixed;
+            width: 100%;
+            display: none;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modelDiv{
+            width: 800px;
+            position: fixed;
+            
+            background-color: white;
+            left: 50%;
+            top: 50%;
+            transition: 0.5s;
+            transform: translate(-50%,-50%) scale(0);
+        }
+        .modelDiv img{
+            width: 100%;
+            display: block;
+        }
+        .modelDiv span{
+            position: absolute;
+            right: 0px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            font-size: 40px;
+        }
+
+
+        .lightBoxOverLayShow{
+            display: block;
+        }
+
+        .showMdoel{
+            transform: translate(-50%,-50%) scale(1);
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="lightBoxOverLay "></div>
+    <div class="modelDiv ">
+        <span>&times;</span>
+        <img src=""/>
+    </div>
+
+
+    <div class="main">
+        <div class="items">
+            <img src="https://uptownskylla.in/wp-content/uploads/2019/10/05-Contener-No-3rd-06.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="https://uptownskylla.in/wp-content/uploads/2019/10/05-Contener-No-3rd-08.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="https://uptownskylla.in/wp-content/uploads/2019/10/05-Contener-No-3rd-10.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="https://uptownskylla.in/wp-content/uploads/2019/10/05-Contener-No-3rd-08.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="https://uptownskylla.in/wp-content/uploads/2019/10/05-Contener-No-3rd-10.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="https://uptownskylla.in/wp-content/uploads/2019/10/05-Contener-No-3rd-08.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="https://uptownskylla.in/wp-content/uploads/2019/10/05-Contener-No-3rd-10.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="https://uptownskylla.in/wp-content/uploads/2019/10/05-Contener-No-3rd-08.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="https://uptownskylla.in/wp-content/uploads/2019/10/05-Contener-No-3rd-10.jpg" alt="">
+        </div>
+    </div>
+
+    <script>
+        let mainDiv=document.querySelector(".main")
+
+        let lightBoxOverLayElement=document.querySelector(".lightBoxOverLay")
+        let modelDivElement=document.querySelector(".modelDiv")
+        let imgElement=document.querySelector(".modelDiv img")
+        let closeBtn=document.querySelector(".modelDiv span")
+
+        console.log(mainDiv.tagName) //DIV
+
+        mainDiv.addEventListener("click",  (event)=>{
+             let element=event.target;
+            if(element.tagName=="IMG"){
+
+              
+                let currentSRC= element.src;
+
+                lightBoxOverLayElement.classList.add('lightBoxOverLayShow')
+                modelDivElement.classList.add('showMdoel')
+                imgElement.src=currentSRC
+
+               
+            }
+        }  )
+
+
+
+
+        let closeModel=()=>{
+            lightBoxOverLayElement.classList.remove('lightBoxOverLayShow')
+            modelDivElement.classList.remove('showMdoel')
+            
+        }
+
+        closeBtn.addEventListener("click",closeModel)
+
+        lightBoxOverLayElement.addEventListener("click",closeModel)
+    </script>
+</body>
+</html>

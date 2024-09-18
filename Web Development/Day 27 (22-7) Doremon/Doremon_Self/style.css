@@ -1,0 +1,220 @@
+* {
+    padding: 0px;
+    margin: 0px;
+
+}
+
+body {
+    background-color: black;
+}
+
+.main {
+    width: 500px;
+    height: 550px;
+    padding-top: 80px;
+    margin: auto;
+    /* background-color: wheat; */
+}
+
+.face {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: blue;
+    margin: auto;
+    /* text-align: center; */
+}
+
+.eyeSection {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+}
+
+.eye {
+    width: 15%;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    margin-top: 30px;
+}
+
+.eyeInner {
+    background-color: black;
+    width: 35%;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 24px;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+
+.eyeInnerWhite {
+    background-color: rgb(255, 255, 255);
+    width: 35%;
+    height: 6px;
+    border-radius: 50%;
+    /* margin-top: 28px; */
+    margin-left: 4px;
+}
+
+.noseSection {
+    background-color: red;
+    height: 15px;
+    margin: auto;
+    width: 25px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.mouthSection {
+    background-color: white;
+    width: 50px;
+    height: 30px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 0px 0px 50px 50px;
+}
+
+.mouthInner {
+    background-color: red;
+    width: 25px;
+    height: 20px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 0px 0px 50px 50px;
+}
+
+.body {
+    width: 200px;
+    background-color: blue;
+    height: 200px;
+    border-radius: 30px 30px 0px 0px;
+    margin: auto;
+}
+
+.neck {
+    width: 90px;
+    height: 20px;
+    background-color: red;
+    margin: auto;
+    border-radius: 20px;
+    position: relative;
+    top: -10px;
+}
+
+.neckMiddle {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.hand {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    position: relative;
+}
+
+.handleft {
+    height: 120px;
+    width: 40px;
+    border-radius: 20px;
+    position: relative;
+    left: -25px;
+    background-color: blue;
+
+}
+
+.wristleft {
+    height: 42px;
+    width: 42px;
+    background-color: white;
+    position: relative;
+    top: 76%;
+    left: -2px;
+    border-radius: 50%;
+}
+
+.handRight {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    position: relative;
+    right: -95px;
+    background-color: blue;
+
+}
+
+.wristRight {
+    height: 42px;
+    width: 42px;
+    background-color: white;
+    position: relative;
+    left: 76%;
+    top: -2px;
+    border-radius: 50%;
+}
+
+.pocket {
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    border-radius: 0px 0px 50px 50px;
+    /* margin: auto; */
+    position: absolute;
+    top: 50%;
+    left: 25%;
+}
+
+.legSection {
+    width: 220px;
+    /* background-color: rgb(255, 255, 255); */
+    height: 60px;
+    /* border-radius: 30px 30px 0px 0px; */
+    margin: auto;
+    /* justify-content: space-between; */
+}
+
+.legMid {
+    width: 200px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    position: relative;
+}
+
+.legLeft {
+    width: 48%;
+    background-color: blue;
+    height: 90%;
+}
+
+.legLeftBottom {
+    width: 50%;
+    background-color: white;
+    height: 60%;
+    position: absolute;
+    top: 70%;
+    left: -2px;
+    border-radius: 30px;
+}
+
+.legRight {
+    width: 48%;
+    background-color: blue;
+    height: 90%;
+}
+
+.legRightBottom {
+    width: 50%;
+    height: 60%;
+    background-color: white;
+    position: absolute;
+    top: 70%;
+    border-radius: 30px;
+    left: 102px;
+}

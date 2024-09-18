@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <fieldset class="fieldset">
+            <legend class="legend">Job Application Form</legend>
+            <form action="" autocomplete="off">
+                <div class="form-elements">
+                    <label for="" class="label">First Name:</label>
+                    <input type="text" id="" class="form-control" name="first_name" value=""
+                        placeholder="Enter Your First Name" required minlength="3" maxlength="10" pattern="[a-zA-Z]+"
+                        autofocus>
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">Last Name:</label>
+                    <input type="text" id="" class="form-control" name="last_name" value=""
+                        placeholder="Enter Your Last Name" minlength="3" maxlength="10" pattern="[a-zA-Z]+">
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">Email:</label>
+                    <input type="email" id="" class="form-control" name="email" value="" placeholder="Enter Your Email"
+                        required>
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">Mobile No.:</label>
+                    <input type="tel" id="" class="form-control" name="mobile_number" value="" placeholder="+91"
+                        minlength="10" maxlength="10" pattern="[0-9]+" required>
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">Username:</label>
+                    <input type="text" id="" class="form-control" name="Username" value=""
+                        placeholder="Enter Your Username" required pattern="[a-zA-Z@]+">
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">Password:</label>
+                    <input type="password" id="" class="form-control" name="password" value=""
+                        placeholder="Enter Your Password" pattern="[0-9@a-zA-Z]+" required>
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">Enter Your Favorite Color:</label>
+                    <input type="color" id="" class="form-control" name="color" value="" placeholder="">
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">Time Of Submission:</label>
+                    <input type="time" id="" class="form-control" name="time" value="" placeholder="">
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label"> Favourite Website Link:</label>
+                    <input type="url" id="" class="form-control" name="weblink" value="https://" placeholder="">
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">Range Of Salary (Rs 10K-80K):</label>
+                    <input type="range" id="" class="form-control" name="range" value="" placeholder="">
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">Date Of Birth:</label>
+                    <input type="date" id="" class="form-control" name="dob" value="" required>
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">State:</label>
+                    <select name="State" id="" class="form-control">
+                        <option value="">Select Your State</option>
+                        <option value="">Haryana</option>
+                        <option value="">Goa</option>
+                        <option value="">Rajesthan</option>
+                        <option value="">Punjab</option>
+                    </select>
+                </div>
+                <div class="clear"></div>
+                <div class="genderbox">
+                    <label for="" class="genderheading">Gender:</label>
+                    <div class="gender">
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male" class="radio">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female" class="radio">Female</label>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other" class="radio">Other</label>
+                    </div>
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">Address</label>
+                    <textarea name="address" id="" cols="125" rows="6" class="addresstext"
+                        placeholder="Enter Your Address..."></textarea>
+                </div>
+                <div class="clear"></div>
+                <div class="genderbox">
+                    <label for="" class="genderheading">Qualification:</label>
+                    <div class="gender">
+                        <input type="radio" id="10th" name="Qualification" value="10th">
+                        <label for="10th" class="radio">10 <sup>th</sup></label>
+                        <input type="radio" id="12th" name="Qualification" value="12th">
+                        <label for="12th" class="radio">12 <sup>th</sup></label>
+                        <input type="radio" id="undergraduation" name="Qualification" value="undergraduation">
+                        <label for="undergraduation" class="radio">Under Graduation</label>
+                        <input type="radio" id="postgraduation" name="Qualification" value="postgraduation">
+                        <label for="postgraduation" class="radio">Post Graduation</label>
+                    </div>
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">Upload Image:</label>
+                    <div>
+                        <input type="file" class="gender">
+                    </div>
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label">Upload Signature:</label>
+                    <div>
+                        <input type="file" class="gender">
+                    </div>
+                </div>
+                <div class="hobbiesmain">
+                    <label for="" class="hobbiesheading">Hobbies:</label>
+                    <div class="hobbies">
+                        <input type="checkbox" id="playing" class="" name="Hobbies" value="playing" placeholder="">
+                        <label for="playing" class="hobbieslist">Playing</label>
+                        <input type="checkbox" id="singing" class="" name="Hobbies" value="" placeholder="">
+                        <label for="singing" class="hobbieslist">Singing</label>
+                        <input type="checkbox" id="reading" class="" name="Hobbies" value="" placeholder="">
+                        <label for="reading" class="hobbieslist">Reading Books</label>
+                    </div>
+                </div>
+                <div class="form-elements">
+                    <label for="" class="label"> Courses:</label>
+                    <input type="text" list="courses" class="form-control">
+                </div>
+                <datalist id="courses">
+                    <option value="">HTML</option>
+                    <option value="">HTML 5</option>
+                    <option value="">CSS</option>
+                    <option value="">CSS 3</option>
+                </datalist>
+                <div class="clear"></div>
+                <div class="submitbutton">
+                    <input type="image" src="images/submit.png" class="submit">
+                </div>
+                <div class="resetbutton">
+                    <input type="reset" id="" name="" value="RESET" class="reset">
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</body>
+
+</html>

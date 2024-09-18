@@ -1,0 +1,460 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-family: "Work Sans", sans-serif;
+    text-decoration: none;
+}
+
+a {
+    color: black;
+}
+
+:root {
+    --paraColor: rgb(33, 37, 41);
+}
+
+.fixedLogo {
+    display: inline-block;
+    border: 15px solid rgb(185, 52, 150);
+    border-radius: 50%;
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    z-index: 1;
+}
+
+.fixedLogoMid {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50% 50% 50% 0%;
+}
+
+header {
+    width: 100%;
+    box-shadow: 0px 1px 2px 0px #ccc;
+    /* padding: 20px 0px; */
+    position: relative;
+}
+
+.headerMid {
+    max-width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.headerMid>figure {
+    flex-basis: 20%;
+}
+
+.headerMid>figure img {
+    width: 80%;
+}
+
+.headerMid>nav {
+    flex-basis: 60%;
+}
+
+.headerMid>nav>ul {
+    display: flex;
+    gap: 40px;
+    justify-content: flex-end;
+}
+
+
+.headerMid>nav>ul li {
+    /* flex-basis: 30%; */
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 20px 0px;
+}
+
+.headerMid>nav>ul li i {
+    font-size: 14px;
+    color: gray;
+    display: inline-block;
+}
+
+.headerMid>nav>ul li a {
+    cursor: pointer;
+}
+
+.buttonDiv {
+    display: none;
+}
+
+.buttonDiv>button {
+    padding: 3px;
+    font-size: 18px;
+}
+
+.dropdownDiv {
+    border: 1px solid black;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    left: 20%;
+    z-index: 1;
+    padding: 15px 10px;
+    display: none;
+    background-color: #f5f5f5;
+}
+
+.hli1:hover .dropdownDiv {
+    display: block;
+}
+
+.dropdownDiv>h2 {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.dropdownDiv h3 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 15px 0px;
+}
+
+.dropdownDiv p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--paraColor);
+    padding: 5px 0px;
+}
+
+.dropdownDiv>div>div>div {
+    padding-bottom: 20px;
+}
+
+.dropdownDiv>div {
+    display: flex;
+    gap: 30px;
+}
+
+.southIndiadrop {
+    border-bottom: 1px solid rgb(82, 82, 82);
+}
+
+.dropdownDiv2 {
+    border: 1px solid black;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    z-index: 1;
+    padding: 10px 30px;
+    display: flex;
+    gap: 50px;
+    display: none;
+    background-color: #f5f5f5;
+
+}
+
+.dropdownDiv2 p {
+    color: var(--paraColor);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    border-bottom: 1px solid black;
+    padding: 5px 0px;
+    margin-bottom: 5px;
+}
+
+.hli2:hover .dropdownDiv2 {
+    display: flex;
+}
+
+main {
+    width: 100%;
+}
+
+.searchMid {
+    width: 85%;
+    margin: auto;
+    padding: 30px 0px;
+}
+
+.searchDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 500px;
+}
+
+.searchImg{
+    flex-basis: 68%;
+    /* border: 1px solid red; */
+    height: 100%;
+    background: url(images/india-holidays.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.searchImg h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 39px;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.searchImg form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 200px;
+}
+
+
+.searchImg form input {
+    border: none;
+    padding: 15px 10px;
+    width: 60%;
+    font-size: 17px;
+}
+
+.searchImg button {
+    background-color: rgb(87, 0, 87);
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    width: 10%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.searchImg button:hover {
+    background-color: rgb(2, 48, 2);
+    color: white;
+}
+
+.searchRight {
+    flex-basis: 30%;
+    height: 100%;
+    background: url(images/india-nepal-bhutan-tour.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.searchRight h3{
+    width: 50%;
+    background-color: white;
+    border-radius: 5px;
+    margin-left: 20px;
+    text-align:center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.searchRight h2 {
+    text-align: center;
+    font-size: 27px;
+    font-weight: 500;
+    line-height: 32px;
+    color: white;
+}
+
+.searchRight  p {
+    margin-bottom: 50px;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+}
+
+.searchBottom{
+    width: 100%;
+    padding: 40px 0px;
+    margin-top: 20px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.searchBottomItems {
+    flex-basis: 30%;
+    border: 1px solid rgb(204, 204, 204);
+    min-height: 150px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.searchBottomItems img{
+    width: 50px;
+}
+
+.searchBottomItems h3{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 10px 0px;
+}
+
+.searchBottomItems p{
+    color: var(--paraColor);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.indiaDest{
+    width: 100%;
+}
+
+.indiaDestMid{
+    max-width: 85%;
+    margin: auto;
+    padding-bottom: 15px;
+}
+
+.indiaDestMid h1{
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 41px;
+    padding-bottom: 15px;
+}
+
+.indiaDestItems{
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.raj{
+    width: 23%;
+    height: 500px;
+    /* border: 1px solid black; */
+    background: url('images/rajasthan-tour-packages.jpg') center no-repeat;
+    background-size: 100% 100%;
+    border-radius: 20px;
+    position: relative;  
+}
+
+.raj::after{
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.innerText{
+    position: absolute;
+    z-index: 1;
+    margin-left: 20px;
+    margin-bottom: 10%;
+    bottom: 0px;
+}
+
+.innerText h3{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    color: white;
+    /* margin-left: 20px; */
+    padding-bottom: 8px;
+}
+
+.innerText p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: white;
+    /* margin-left: 20px;
+    padding-bottom: 50px; */
+}
+
+.otherStates{
+    flex-basis: 75%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+.otherStates>div{
+    width: 31%;
+    /* border: 0.1px solid red; */
+    margin: 5px 0px;
+    border-radius: 10px;
+}
+
+.otherStates>div::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.kerala{
+    background:url(images/kerala-tour-packages.jpg) center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.Sikkim{
+    background: url(images/sikkim-tour-packages.jpg) center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.Varansi{
+    background: url(images/varanasi-tour-packages.jpg) center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.Madhyapradesh{
+    background: url(images/khajuraho-tour-packages.jpg) center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.jandk{
+    background: url(images/kashmir-tour-packages.jpg) center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.karnataka {
+    background: url(images/karnataka-tour-packages.jpg) center no-repeat;
+    background-size: cover;
+    position: relative;
+}

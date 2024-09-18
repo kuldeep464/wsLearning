@@ -1,0 +1,20 @@
+let fromDate=document.querySelector("#FromDate")
+let toDate=document.querySelector("#toDate")
+let btn=document.querySelector("button")
+let output=document.querySelector("#output")
+btn.addEventListener("click",()=>{
+    let fromdateObj=new Date(fromDate.value)
+    let todateObj=new Date(toDate.value)
+    let fromdateobjmilisecond=fromdateObj.getTime()
+    let todateobjmilisecond=todateObj.getTime()
+    let totaldiffsecond=(todateobjmilisecond-fromdateobjmilisecond)/1000
+    let oneminute=60
+    let onehour=oneminute*60
+    let oneday=onehour*24
+    let totalday=Math.floor(totaldiffsecond/oneday)
+    let remainingsecondsforhours=totaldiffsecond % oneday
+    let totalremaininghours= Math.floor(remainingsecondsforhours/onehour)
+    let remainingsecondsforminutes= remainingsecondsforhours % onehour
+    let totalremainingminutes = Math.floor(remainingsecondsforminutes/oneminute)
+    output.value= totalday+" Days " + totalremaininghours+ " Hours " + totalremainingminutes+" Minutes "
+})

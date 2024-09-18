@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swipe Data</title>
+</head>
+<style>
+    body{
+        background-color: aquamarine;
+    }
+    .container{
+        width: 500px;
+        margin: auto;
+        border: 2px solid black;
+        padding: 40px 20px;
+    }
+    .boxes{
+        display: flex;
+        justify-content: space-around; 
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .box1{
+        width: 45%;
+        height: 200px;
+        background-color: bisque;
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .box2{
+        width: 45%;
+        padding: 10px;
+        height: 200px;
+        background-color: bisque;
+        border-radius: 15px;
+    }
+    button{
+        display: table;
+        margin: auto;
+        padding: 5px 10px;
+        border-radius: 10px;
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="boxes">
+            <div class="box1">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque sed perferendis magnam officiis maxime debitis molestias saepe facere nemo recusandae, repudiandae, iste accusantium?
+            </div>
+            <div class="box2">
+               aperiam odit quaerat eveniet corrupti deleniti qui inventore nemo iusto sapiente dignissimos quasi nulla quisquam temporibus velit quidem ipsum. Voluptates maxime molestiae quaerat consequatur veniam ab corrupti ratione.
+            </div>
+        </div>
+        <button>Swipe The Data</button>
+    </div>
+</body>
+<script>
+    let box1=document.querySelector(".box1")
+    let box2=document.querySelector(".box2")
+    let btn=document.querySelector("button")
+    btn.addEventListener("click",()=>{
+        let box1Data=box1.innerText
+        let box2Data=box2.innerText
+        box1.innerText=box2Data
+        box2.innerText=box1Data
+    })
+</script>
+</html>

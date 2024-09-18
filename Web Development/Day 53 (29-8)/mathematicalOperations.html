@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Operations</title>
+</head>
+
+<body>
+    <table cellspacing="0" cellpadding="10">
+        <tr>
+            <td>Number 1</td>
+            <td><input type="text" class="num1"></td>
+        </tr>
+        <tr>
+            <td>Operations</td>
+            <td>
+                <select name="" id="">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Number 2</td>
+            <td><input type="text" class="num2"></td>
+        </tr>
+        <tr>
+            <td><button class="btn">Result</button></td>
+            <td><input type="text" class="output"></td>
+        </tr>
+    </table>
+</body>
+<script>
+    let num1 = document.querySelector(".num1")
+    let num2 = document.querySelector(".num2")
+    let Operations = document.querySelector("select")
+    let btn = document.querySelector(".btn")
+    let output = document.querySelector(".output")
+    btn.addEventListener("click", () => {
+        let finalresult;
+        switch (Operations.value) {
+            case "+":
+                finalresult = Number(num1.value) + Number(num2.value)
+                break;
+            case "-":
+                finalresult = Number(num1.value) - Number(num2.value)
+                break;
+            case "*":
+                finalresult = Number(num1.value) * Number(num2.value)
+                break;
+            case "/":
+                finalresult = Number(num1.value) / Number(num2.value)
+                break;
+
+            default:
+                break;
+        }
+        output.value = finalresult
+    })
+</script>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Html Form Elements</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+	<div class="outer">
+		<fieldset>
+			<legend class="legend">Job Application Form</legend>
+			<form>
+				<div class="column">
+					<label class="label">First Name</label>
+					<input type="text" class="form-control" id="" name="first_name" value="sandeep" />
+				</div>
+				<div class="column">
+					<label class="label">Last Name</label>
+					<input type="text" class="form-control" id="" name="last_name" />
+				</div>
+				<div class="column">
+					<label class="label">Age</label>
+					<input type="number" class="form-control" id="" name="age" />
+				</div>
+				<div class="column">
+					<label class="label">Email</label>
+					<input type="email" class="form-control" name="email" />
+				</div>
+				<div class="column">
+					<label class="label">Password</label>
+					<input type="password" class="form-control" name="password" />
+				</div>
+				<div class="column">
+					<label class="label">choose Imgae</label>
+					<input type="file" class="form-control" name="image" />
+				</div>
+				<div class="column">
+					<label class="label">Gender</label>
+					<label for="male">Male</label>
+					<input type="radio" class="" id="male" name="gender" /> 
+					
+					<label for="female">female</label>
+					<input type="radio" class="" id="female" name="gender" />
+				</div>
+				<div class="column">
+					<label class="label">Hobbies</label>
+					<input type="checkbox" class="" name="hobbies" /> Cricket
+					<input type="checkbox" class="" name="hobbies" /> Football
+					<input type="checkbox" class="" name="hobbies" /> singing
+				</div>
+				<div class="column-textarea">
+					<label class="label">Address</label>
+					<textarea class="form-textarea" name="addrress"></textarea>
+				</div>
+				<div class="column">
+					<label class="label">Courses</label>
+					<select class="form-control" name="course">
+						<option>Select Course</option>
+						<option>HTML</option>
+						<option>HTML 5</option>
+						<option>CSS</option>
+						<option>CSS 3</option>
+					</select>
+				</div>
+				<div class="column">
+					<label class="label">Courses</label>
+					<select class="form-control" name="">
+						<option>Select Course</option>
+						<optgroup label="Frontend">
+							<option>HTML</option>
+							<option>HTML 5</option>
+							<option>CSS</option>
+							<option>CSS 3</option>
+						</optgroup>
+						
+						<option>Node js </option>
+						<option>Mongo Db</option>
+					</select>
+				</div>
+				<input type="button" name="" class="button" value="submit">
+				<input type="submit" name="" class="button" value="submit">
+				<div class="column-textarea">
+					<button class="button">Submit</button>
+				</div>
+
+			</form>
+		</fieldset>
+	</div>
+
+</body>
+</html>

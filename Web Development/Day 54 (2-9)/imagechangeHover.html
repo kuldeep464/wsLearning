@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Change by Hover</title>
+</head>
+<body>
+    <div class="container">
+        <img src="images/3.png" alt="" height="300" width="300" class="img1">
+        <img src="images/2.png" alt="" height="300" width="300" class="img2">
+    </div>
+</body>
+<script>
+    let img1=document.querySelector(".img1")
+    let img2=document.querySelector(".img2")
+    function imageChange (){
+        let img1src=img1.src
+        let img2src=img2.src
+        img1.src=img2src
+        img2.src=img1src
+    }
+    img1.addEventListener("mouseover",imageChange)
+    img1.addEventListener("mouseout",imageChange)
+    img2.addEventListener("mouseover",imageChange)
+    img2.addEventListener("mouseout",imageChange)
+</script>
+</html>
