@@ -19,9 +19,11 @@ form.addEventListener("submit",(event)=>{
 })
 
 let userlist =()=>{
-    let rows;
+    let rows='';
     tbody.innerHTML=''
     let userOldData = JSON.parse(localStorage.getItem("user")) ?? []
+
+    console.log(userOldData)
     userOldData.forEach((element,index) => {
         rows+= ` <tr>
                     <td>${index + 1}</td>
@@ -31,9 +33,11 @@ let userlist =()=>{
                     <td><button onclick=deleteparticular(${index})>Delete</button></td>
                     <td>Edit</td>
                 </tr>`
-        tbody.innerHTML=rows
+       
     });
+    tbody.innerHTML=rows
 
+    
 }
 userlist()
 
