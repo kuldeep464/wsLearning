@@ -243,3 +243,8 @@ footer{
 .sociallinks li a:hover .fa-youtube {
     color:red;
 }
+
+#mentorsCarousel .active span{
+    width: 30px ;
+    background-color: red;
+}
