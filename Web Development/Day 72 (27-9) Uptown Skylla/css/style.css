@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Raleway", sans-serif;
+    text-decoration: none;
+}
+
+:root {
+    --blueColor: rgb(4, 54, 83);
+    --yellowType: rgb(247, 242, 236);
+    --yellowtext: rgb(156, 143, 127);
+}
+
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: rgb(189, 165, 136);
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: 0.5s;
+}
+
+#myBtn:hover {
+    background-color: #555;
+}
+
+.PermanentFixedBars {
+    position: fixed;
+    z-index: 100;
+    top: 48%;
+    right: 20px;
+}
+
+.barDiv {
+    padding: 2px 0px;
+}
+
+.barLines {
+    width: 50px;
+    height: 1px;
+    margin-bottom: 5px;
+    background-color: rgb(196, 196, 196);
+    position: relative;
+    transition: 0.5s;
+}
+
+.barlinesLink {
+    opacity: 0;
+    /* display: none; */
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: 200px;
+    padding: 5px;
+    color: rgb(4, 54, 83);
+    text-decoration: none;
+    text-align: end;
+    padding-right: 10px;
+    transition-delay: 0.5s;
+}
+
+.barlinesLink a {
+    border: 0.1px solid #ccc;
+    border-radius: 30% 0px 0px 30%;
+    padding: 5px;
+    color: rgb(8, 8, 40);
+    background-color: #f5f5f5;
+}
+
+.barDiv:hover .barLines {
+    transform: rotate(360deg);
+}
+
+.barDiv:hover .barlinesLink {
+    /* display: block; */
+    opacity: 1;
+}
+
+.ratingSection p {
+    color: rgb(134, 130, 107);
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+.ratingSection h1 {
+    color: rgb(16, 16, 53);
+    width: 80%;
+    margin-top: 50px;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.ratingSection h2 {
+    font-size: 100px;
+    font-weight: 700;
+    color: rgb(189, 165, 136);
+}
+
+.zirakpurAbout {
+    background-color: var(--yellowType);
+    position: relative;
+
+}
+
+.zirakpurAbout figure {
+    width: 550px;
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.zirakpurContent {
+    padding-left: 300px;
+}
+
+.zirakpurContent h4 {
+    color: var(--blueColor);
+}
+
+.zirakpurContent p {
+    line-height: 30px;
+    color: gray;
+}
+
+.yellowbg {
+    background-color: var(--yellowType);
+}
+
+.quickFactsContent h3{
+    color: var(--blueColor);
+}
+
+.quickFactsContent p {
+    color: rgb(133, 117, 96);
+}
+
+.offeringHeading{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.offeringHeading h1{
+    color: var(--blueColor);
+}
+
+.offeringHeading a {
+    color: rgb(133, 117, 96);
+    font-size: 14px;
+    border-bottom: 2px solid rgb(133, 117, 96);
+}
+
+.offeringContents h3{
+    color: var(--blueColor);
+}
+
+.offeringContents>div>div>div{
+    box-shadow: 0px 0px 10px 1px #ccc;
+    overflow: hidden;
+}
+
+.offeringContents>div>div>div img{
+    transition: 1s;
+}
+
+.offeringContents>div>div>div:hover img{
+    transform: scale(1.1);
+}
+
+.highlightsSEction{
+    background-color: var(--yellowType);
+}
+
+.highlightsSEction h1 {
+    color: var(--blueColor);
+}
+
+.highlightContent i{
+    font-size: 50px;
+    padding-bottom: 25px;
+    color: var(--yellowtext);
+}
+
+.whyChooseHeading p {
+    font-size: 15px ;
+    color: var(--yellowtext);
+    font-weight: 700;
+}
+
+.whyChooseHeading h1{
+    font-size: 50px ;
+    color: var(--blueColor);
+    padding-bottom: 100px;
+}
+
+.WhyContent {
+    position: relative;
+    background-color: var(--yellowType);
+    padding-left: 400px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.WhyContent figure {
+    width: 550px;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.WhyContent p {
+    font-size: 18px;
+    line-height: 30px;
+    width: 60%;
+}
+
+.WhyContent h1{
+    font-size: 50px;
+    padding: 50px 0px;
+    color: var(--blueColor);
+    font-weight: 600;
+}
+
+.videoSection {
+    background-color: var(--blueColor);
+}
+
+.videoContent p {
+    color: var(--yellowtext);
+    font-weight: 700;
+}
+
+.videoSection video {
+    height: 100vh;
+}
+
+.GoalSection h1, h5 {
+    color: var(--blueColor);
+}
+
+.successStory {
+    position: relative;
+}
+
+.successContent {
+    background-color: var(--yellowType);
+}
+
+.successContent figure {
+    width: 550px;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+}
+
+.SuccessText {
+    padding-left: 300px;
+    padding-right: 50px;
+}
+
+.SuccessText img {
+    height: 50px;
+}
+
+.SuccessText h3, h5 {
+    color: var(--blueColor);
+}
+
+.SuccessText h5 {
+    margin-top: 20px;
+}
+
+.percentagegrayLine {
+    background-color: lightgray;
+    position: relative;
+    padding: 13px 0px;
+}
+
+.hundredPerLine {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(9, 173, 9);
+}
+
+.eightypercentLine {
+    width: 80%;
+    background-color: skyblue;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.toprating {
+    color: var(--blueColor);
+}
+
+.competativeAdvantagesSection h1{
+    color: var(--blueColor);
+}
+
+.competativeAdvantagesSection button {
+    background-color: var(--blueColor);
+    color: white;
+    padding: 12px 22px;
+    font-size: 25px;
+    font-weight: 700;
+    box-shadow: 0px 20px 10px 0px #ccc;
+}
