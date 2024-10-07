@@ -324,3 +324,19 @@ a {
     font-weight: 700;
     box-shadow: 0px 20px 10px 0px #ccc;
 }
+
+.goldenColor {
+    color: var(--yellowtext);
+}
+
+.footerhoverList a:hover li {
+    color: var(--yellowtext) !important;
+}
+
+.footerhoverList li:hover p {
+    color: var(--yellowtext) !important;
+}
+
+.copyrightSection a:hover {
+    color: var(--yellowtext) !important;
+}
