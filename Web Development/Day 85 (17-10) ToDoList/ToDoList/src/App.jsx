@@ -31,7 +31,7 @@ function App() {
       <h1 className='text-[30px] font-bold text-center py-5 bg-purple-400'>To-Do-List</h1>
 
       <form action="" className='max-w-[700px] mx-auto flex items-center' onSubmit={handleToDo}>
-        <input type="text" className='border-[1px] border-black my-3 p-[2px_15px] grow rounded' name='userData' />
+        <input type="text" className='border-[1px] border-black my-3 p-[2px_15px] grow rounded' name='userData' required />
         <button className='border-[1px] border-black ml-5 p-[2px_15px] rounded bg-orange-400 text-white font-bold'>Save</button>
       </form>
 
@@ -44,7 +44,7 @@ function App() {
 
               allToDo.map((items, index) => {
                 return (
-                  <li className='bg-purple-400 p-[5px_15px] relative font-medium'>
+                  <li className='bg-purple-400 p-[5px_15px] relative font-medium my-2 rounded '>
                       {index+1}   {items} <span className='text-[18px] absolute right-[10px] cursor-pointer' onClick={()=>delItems(index)}>&times;</span>
                   </li>
                 )
