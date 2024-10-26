@@ -4,23 +4,104 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { FaStar } from 'react-icons/fa'
 import axios from 'axios'
+import ResponsivePagination from 'react-responsive-pagination';
+import 'react-responsive-pagination/themes/classic.css';
 
 function App() {
   const [result, setresult] = useState([])
+  let [categories, setCategories] = useState([])
+  let [brand, setBrand] = useState([])
+  let [rating, setRating] = useState(null)
+  let [priceFilter, setPriceFilter] = useState(['', ''])
+  let [discountFilter, setDiscountFilter] = useState(['', ''])
+  let [allCatSlug, setAllCatSlug] = useState([])
+  let [allBrandSlug, setAllBrandSlug] = useState([])
+  let [sorting, setSorting] = useState('null')
+  
 
-  let apiDAta = () => {
-    let apiUrl = `https://wscubetech.co/ecommerce-api/products.php`
+  const [currentPage, setCurrentPage] = useState(1);
+  let [totalPages, setTotalPages]=useState(0)
 
-    axios.get(apiUrl)
+
+  let categoryData = () => {
+    let categoryApi = `https://wscubetech.co/ecommerce-api/categories.php`
+    axios.get(categoryApi)
       .then((apiRes) => apiRes.data)
       .then((finalRes) => {
-        setresult(finalRes.data)
+        setCategories(finalRes.data)
+      })
+  }
+
+  let BrandData = () => {
+    let BrandApi = `https://wscubetech.co/ecommerce-api/brands.php`
+    axios.get(BrandApi)
+      .then((apiRes) => apiRes.data)
+      .then((finalRes) => {
+        setBrand(finalRes.data)
       })
   }
 
   useEffect(() => {
-    apiDAta()
+    categoryData()
+    BrandData()
   }, [])
+
+  let apiDAta = () => {
+    axios.get(`https://wscubetech.co/ecommerce-api/products.php`, {
+      params: {
+        page: currentPage,
+        limit: 12,
+        categories: allCatSlug.toString(),
+        brands: allBrandSlug.toString(),
+        price_from: priceFilter[0],
+        price_to: priceFilter[1],
+        discount_from: discountFilter[0],
+        discount_to: discountFilter[1],
+        rating,
+        sorting
+      }
+    })
+      .then((apiRes) => apiRes.data)
+      .then((finalRes) => {
+        window.scrollTo({
+          top:'0',
+          behavior:'smooth'
+        })
+        setresult(finalRes.data)
+        setTotalPages(finalRes.toal_pages)
+      })
+  }
+
+
+
+  useEffect(() => {
+    apiDAta()
+  }, [rating, priceFilter, discountFilter, allCatSlug, allBrandSlug, sorting,currentPage])
+
+
+
+  let getCategorySlug = (event) => {
+    if (event.target.checked) {
+      if (!allCatSlug.includes(event.target.value)) {
+        setAllCatSlug([...allCatSlug, event.target.value])
+      }
+    }
+    else {
+      setAllCatSlug(allCatSlug.filter((items) => items != event.target.value))
+    }
+  }
+
+
+  let getBrandSlug = (event) => {
+    if (event.target.checked) {
+      if (!allBrandSlug.includes(event.target.value)) {
+        setAllBrandSlug([...allBrandSlug, event.target.value])
+      }
+    }
+    else {
+      setAllBrandSlug(allBrandSlug.filter((items) => items != event.target.value))
+    }
+  }
 
   return (
     <>
@@ -49,22 +130,23 @@ function App() {
           <div>
             <h3 className='py-4'>Home / clothing / <b>Men T-shirts</b></h3>
             <h4 className='pb-4'><b>Men T-shirts -</b> 126446 items</h4>
-            <div className='pb-4 grid grid-cols-[40%_auto] md:grid-cols-[25%_auto] items-center relative'>
+            <div className='pb-4 grid grid-cols-[40%_auto] md:grid-cols-[20%_auto] items-center relative'>
               <div className='flex flex-col md:flex-row justify-between'>
                 <b>FILTERS</b>
-                <a href="" className='text-red-500 font-bold'>Clear All</a>
+                <button href="" className='text-red-500 font-bold' onClick={()=>{rating(null), priceFilter(['', '']), discountFilter(['', '']), allCatSlug([]), allBrandSlug([]), sorting('null')}}>Clear All</button>
+                
               </div>
               <div className='absolute top-[100%] md:right-0 md:top-0'>
-                <select name="" id="" className='border-[1px] border-black p-1 w-[200px]'>
-                  <option value=" Sort by : Recommended" > Sort by : Recommended</option>
-                  <option value="">Name : A to Z</option>
-                  <option value="">Name : Z to A</option>
-                  <option value="">Price : Low to High</option>
-                  <option value="">Price : High to Low</option>
-                  <option value="">Discounted Price : Low to High</option>
-                  <option value="">Discounted Price : High to Low</option>
-                  <option value="">Rating : Low to High</option>
-                  <option value="">Rating : High to Low</option>
+                <select name="" id="" onChange={(event) => setSorting(event.target.value)} className='border-[1px] border-black p-1 w-[200px]'>
+                  <option value="null" > Sort by : Recommended</option>
+                  <option value="1" >Name : A to Z</option>
+                  <option value="2"  >Name : Z to A</option>
+                  <option value="3"   >Price : Low to High</option>
+                  <option value="4" >Price : High to Low</option>
+                  <option value="5" >Discounted Price : Low to High</option>
+                  <option value="6" >Discounted Price : High to Low</option>
+                  <option value="7" >Rating : Low to High</option>
+                  <option value="8" >Rating : High to Low</option>
                 </select>
               </div>
             </div>
@@ -73,70 +155,32 @@ function App() {
       </section>
 
       <section className=' p-2 mt-8'>
-        <div className='grid grid-cols-[18%_auto] gap-[30px]'>
+        <div className='grid sm:grid-cols-[30%_auto] md:grid-cols-[18%_auto] gap-[30px]'>
           <aside className=' w-[100%]'>
             <div className='border-[0.1px] border-black rounded p-2 h-[250px] overflow-y-scroll'>
               <h2 className='font-bold py-2'>CATEGORIES : </h2>
               <ul>
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
 
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
+                {
+                  categories.length >= 1 ?
 
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
+                    categories.map((items, index) => {
+                      return (
+                        <li className='py-1' onClick={getCategorySlug}>
+                          <input type="checkbox" id={index} value={items.slug} />
+                          <label htmlFor={index}  > {items.name}</label>
+                        </li>
+                      )
+                    })
 
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
+                    :
+                    <li className='py-1'>
+                      No Category Found
+                    </li>
 
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
+                }
 
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
 
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
 
               </ul>
             </div>
@@ -144,65 +188,23 @@ function App() {
             <div className='border-[0.1px] border-black rounded p-2 h-[250px] overflow-y-scroll'>
               <h2 className='font-bold py-2'>Brand : </h2>
               <ul>
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
 
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
+                {
+                  brand.length >= 1 ?
+                    brand.map((items, index) => {
+                      return (
+                        <li className='py-1' onClick={getBrandSlug}>
+                          <input type="checkbox" value={items.slug} />
+                          <label htmlFor=""> {items.name}</label>
+                        </li>
+                      )
+                    })
+                    :
+                    <li className='py-1'>
+                      No Brand Available
+                    </li>
+                }
 
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
-
-                <li className='py-1'>
-                  <input type="checkbox" />
-                  <label htmlFor=""> Beauty</label>
-                </li>
 
               </ul>
             </div>
@@ -210,22 +212,22 @@ function App() {
             <div className='border-[0.1px] border-black rounded p-2'>
               <h2 className='font-bold py-2'>Price : </h2>
               <form action="">
-                <div className='py-1'>
+                <div className='py-1' onClick={() => setPriceFilter([10, 250])}>
                   <input type="radio" name="price" id='rs10-250' />
                   <label htmlFor="rs10-250"> Rs.10 to Rs. 250</label>
                 </div>
 
-                <div className='py-1'>
+                <div className='py-1' onClick={() => setPriceFilter([250, 500])}>
                   <input type="radio" name="price" id='rs250-500' />
                   <label htmlFor="rs250-500"> Rs.250 to Rs. 500</label>
                 </div>
 
-                <div className='py-1'>
+                <div className='py-1' onClick={() => setPriceFilter([500, 1000])}>
                   <input type="radio" name="price" id='rs500-1000' />
                   <label htmlFor="rs500-1000"> Rs.500 to Rs. 1000</label>
                 </div>
 
-                <div className='py-1'>
+                <div className='py-1' onClick={() => setPriceFilter([1000, ''])}>
                   <input type="radio" name="price" id='rs1000above' />
                   <label htmlFor="rs1000above"> Rs.1000 to Above</label>
                 </div>
@@ -235,22 +237,22 @@ function App() {
             <div className='border-[0.1px] border-black rounded p-2'>
               <h2 className='font-bold py-2'>Discount Range : </h2>
               <form action="">
-                <div className='py-1'>
+                <div className='py-1' onClick={() => setDiscountFilter([0, 5])}>
                   <input type="radio" name="Discount" id='per5' />
                   <label htmlFor="per5"> 5% and above</label>
                 </div>
 
-                <div className='py-1'>
+                <div className='py-1' onClick={() => setDiscountFilter([0, 10])}>
                   <input type="radio" name="Discount" id='per10' />
                   <label htmlFor="per10"> 10% and above</label>
                 </div>
 
-                <div className='py-1'>
+                <div className='py-1' onClick={() => setDiscountFilter([0, 15])}>
                   <input type="radio" name="Discount" id='per15' />
                   <label htmlFor="per15"> 15% and above</label>
                 </div>
 
-                <div className='py-1'>
+                <div className='py-1' onClick={() => setDiscountFilter([0, 20])}>
                   <input type="radio" name="Discount" id='per20' />
                   <label htmlFor="per20"> 20% and above</label>
                 </div>
@@ -260,31 +262,31 @@ function App() {
             <div className='border-[0.1px] border-black rounded p-2'>
               <h2 className='font-bold py-2'>Rating : </h2>
               <form action="">
-                <div className='py-1 flex gap-[5px]'>
+                <div className='py-1 flex gap-[5px]' onClick={() => setRating(4)}>
                   <input type="radio" name="Rating" id='star4' />
                   <label htmlFor="star4" className='flex gap-[5px] items-center'> 4 <FaStar className='text-[14px]' /> & Above</label>
                 </div>
 
-                <div className='py-1 flex gap-[5px]'>
+                <div className='py-1 flex gap-[5px]' onClick={() => setRating(3)}>
                   <input type="radio" name="Rating" id='star3' />
                   <label htmlFor="star3" className='flex gap-[5px] items-center'> 3 <FaStar className='text-[14px]' /> & Above</label>
                 </div>
 
-                <div className='py-1 flex gap-[5px]'>
+                <div className='py-1 flex gap-[5px]' onClick={() => setRating(2)}>
                   <input type="radio" name="Rating" id='star2' />
                   <label htmlFor="star2" className='flex gap-[5px] items-center'> 2 <FaStar className='text-[14px]' /> & Above</label>
                 </div>
 
-                <div className='py-1 flex gap-[5px]'>
+                <div className='py-1 flex gap-[5px]' onClick={() => setRating(1)}>
                   <input type="radio" name="Rating" id='star1' />
                   <label htmlFor="star1" className='flex gap-[5px] items-center'> 1 <FaStar className='text-[14px]' /> & Above</label>
                 </div>
               </form>
             </div>
           </aside>
-          <div className='border-2 border-black grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px]'>
+          <div className='border-[0.5px] border-gray-400 rounded-[10px] '>
 
-
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px]'>
             {
               result.length >= 1
 
@@ -301,190 +303,210 @@ function App() {
 
 
                 <>
-                  <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                  <div class="animate-pulse flex space-x-4">
-                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div class="flex-1 space-y-6 py-1">
-                      <div class="h-2 bg-slate-700 rounded"></div>
-                      <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-4">
-                          <div class="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+                  <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto ">
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                      <div className="flex-1 space-y-6 py-1">
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded"></div>
                         </div>
-                        <div class="h-2 bg-slate-700 rounded"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                  <div class="animate-pulse flex space-x-4">
-                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div class="flex-1 space-y-6 py-1">
-                      <div class="h-2 bg-slate-700 rounded"></div>
-                      <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-4">
-                          <div class="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+
+                  <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                      <div className="flex-1 space-y-6 py-1">
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded"></div>
                         </div>
-                        <div class="h-2 bg-slate-700 rounded"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                  <div class="animate-pulse flex space-x-4">
-                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div class="flex-1 space-y-6 py-1">
-                      <div class="h-2 bg-slate-700 rounded"></div>
-                      <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-4">
-                          <div class="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+
+                  <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                      <div className="flex-1 space-y-6 py-1">
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded"></div>
                         </div>
-                        <div class="h-2 bg-slate-700 rounded"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                  <div class="animate-pulse flex space-x-4">
-                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div class="flex-1 space-y-6 py-1">
-                      <div class="h-2 bg-slate-700 rounded"></div>
-                      <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-4">
-                          <div class="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+
+                  <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                      <div className="flex-1 space-y-6 py-1">
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded"></div>
                         </div>
-                        <div class="h-2 bg-slate-700 rounded"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                  <div class="animate-pulse flex space-x-4">
-                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div class="flex-1 space-y-6 py-1">
-                      <div class="h-2 bg-slate-700 rounded"></div>
-                      <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-4">
-                          <div class="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+
+                  <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                      <div className="flex-1 space-y-6 py-1">
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded"></div>
                         </div>
-                        <div class="h-2 bg-slate-700 rounded"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                  <div class="animate-pulse flex space-x-4">
-                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div class="flex-1 space-y-6 py-1">
-                      <div class="h-2 bg-slate-700 rounded"></div>
-                      <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-4">
-                          <div class="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+
+                  <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                      <div className="flex-1 space-y-6 py-1">
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded"></div>
                         </div>
-                        <div class="h-2 bg-slate-700 rounded"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                  <div class="animate-pulse flex space-x-4">
-                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div class="flex-1 space-y-6 py-1">
-                      <div class="h-2 bg-slate-700 rounded"></div>
-                      <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-4">
-                          <div class="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+
+                  <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                      <div className="flex-1 space-y-6 py-1">
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded"></div>
                         </div>
-                        <div class="h-2 bg-slate-700 rounded"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                  <div class="animate-pulse flex space-x-4">
-                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div class="flex-1 space-y-6 py-1">
-                      <div class="h-2 bg-slate-700 rounded"></div>
-                      <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-4">
-                          <div class="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+
+                  <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                      <div className="flex-1 space-y-6 py-1">
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded"></div>
                         </div>
-                        <div class="h-2 bg-slate-700 rounded"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                  <div class="animate-pulse flex space-x-4">
-                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div class="flex-1 space-y-6 py-1">
-                      <div class="h-2 bg-slate-700 rounded"></div>
-                      <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-4">
-                          <div class="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+
+                  <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                      <div className="flex-1 space-y-6 py-1">
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded"></div>
                         </div>
-                        <div class="h-2 bg-slate-700 rounded"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                  <div class="animate-pulse flex space-x-4">
-                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div class="flex-1 space-y-6 py-1">
-                      <div class="h-2 bg-slate-700 rounded"></div>
-                      <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-4">
-                          <div class="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+
+                  <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                      <div className="flex-1 space-y-6 py-1">
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded"></div>
                         </div>
-                        <div class="h-2 bg-slate-700 rounded"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                  <div class="animate-pulse flex space-x-4">
-                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div class="flex-1 space-y-6 py-1">
-                      <div class="h-2 bg-slate-700 rounded"></div>
-                      <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-4">
-                          <div class="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+
+                  <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                      <div className="flex-1 space-y-6 py-1">
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded"></div>
                         </div>
-                        <div class="h-2 bg-slate-700 rounded"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                  <div class="animate-pulse flex space-x-4">
-                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
-                    <div class="flex-1 space-y-6 py-1">
-                      <div class="h-2 bg-slate-700 rounded"></div>
-                      <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-4">
-                          <div class="h-2 bg-slate-700 rounded col-span-2"></div>
-                          <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+
+                  <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+                      <div className="flex-1 space-y-6 py-1">
+                        <div className="h-2 bg-slate-700 rounded"></div>
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                            <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded"></div>
                         </div>
-                        <div class="h-2 bg-slate-700 rounded"></div>
                       </div>
                     </div>
                   </div>
-                </div>
                 </>
 
 
             }
+            </div>
+
+            <div className='py-[30px]'>
+              <ResponsivePagination
+                current={currentPage}
+                total={totalPages}
+                onPageChange={setCurrentPage}
+              />
+            </div>
 
 
           </div>
@@ -576,7 +598,6 @@ function App() {
 export default App
 
 function ProductItems({ finaldata }) {
-  console.log(finaldata)
   let { image, description, price, stock, name } = finaldata
   return (
     <div className='m-2 border-[0.1px] border-gray-300 rounded-[10px]'>
