@@ -6,3 +6,28 @@
     color: rgb(131, 101, 101) !important;
     font-size: 30px;
 }
+
+#HomePaperTobacco .slick-prev::before, #HomePaperTobacco .slick-next::before {
+    color: rgb(131, 101, 101) !important;
+    font-size: 30px;
+}
+
+#HomeSnacks .slick-prev::before, #HomeSnacks .slick-next::before {
+    color: rgb(131, 101, 101) !important;
+    font-size: 30px;
+}
+
+#HomeHookah  .slick-prev::before, #HomeHookah     .slick-next::before {
+    color: rgb(131, 101, 101) !important;
+    font-size: 30px;
+}
+
+#HomeMouthFresher  .slick-prev::before, #HomeMouthFresher     .slick-next::before {
+    color: rgb(131, 101, 101) !important;
+    font-size: 30px;
+}
+
+#HomeColddrinks  .slick-prev::before, #HomeColddrinks     .slick-next::before {
+    color: rgb(131, 101, 101) !important;
+    font-size: 30px;
+}
