@@ -8,6 +8,7 @@ import Wishlist from './pages/Wishlist'
 import Cart from './pages/Cart'
 import ProductDetailing from './pages/ProductDetailing'
 import EcomContext from './context/EcomContext'
+import 'react-toastify/dist/ReactToastify.css';
 
 const routes = createBrowserRouter([
   {

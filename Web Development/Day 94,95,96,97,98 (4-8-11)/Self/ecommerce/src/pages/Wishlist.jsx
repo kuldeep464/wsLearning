@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { main_context } from '../context/EcomContext'
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { FaLongArrowAltRight } from 'react-icons/fa';
@@ -26,7 +25,7 @@ export default function Wishlist() {
 
     }
     else {
-      toast.error("This Item already in Wishlist")
+      toast.error("This Item already in Cart")
     }
 
   }
