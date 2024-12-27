@@ -1,0 +1,15 @@
+.slick-prev {
+  background-color: black !important;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.slick-next {
+  background-color: black !important;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.slick-disabled {
+  opacity: 0 !important;
+}

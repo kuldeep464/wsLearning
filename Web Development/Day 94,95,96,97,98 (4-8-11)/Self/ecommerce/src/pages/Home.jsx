@@ -3,9 +3,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { main_context } from '../context/EcomContext'
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-
+// import 'react-notifications/lib/notifications.css';
+// import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 export default function Home() {
     let { cartData, setCartData } = useContext(main_context)
@@ -155,6 +154,7 @@ let Productitems = ({ v }) => {
 
         <div className="w-full max-w-sm mx-auto rounded-md shadow-md px-3 overflow-hidden">
             <ToastContainer />
+            {/* <NotificationContainer/> */}
             <div className="flex items-end justify-end h-56 w-full bg-cover ">
 
                 <img src={v.thumbnail} className='w-[100%] h-[100%] object-cover' alt="" />

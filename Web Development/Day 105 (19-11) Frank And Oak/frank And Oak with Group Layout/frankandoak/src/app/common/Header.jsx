@@ -1,21 +1,28 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { IoIosArrowDown } from "react-icons/io";
 import { IoBagHandleOutline, IoSearchOutline } from "react-icons/io5";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { CiHeart } from "react-icons/ci";
 import LoginModal from '../modal/LoginModal';
 import { Carousel } from "flowbite-react";
+import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
+import CartModal from '../modal/CartModal';
+import { cartModalsliderContext } from '../context/cartContext';
 
 export default function Header() {
+    let {cartModalSlider,setCartModalSlider}=useContext(cartModalsliderContext)
     const [openModal, setOpenModal] = useState(false);
     let modalData = { openModal, setOpenModal }
     return (
         <header >
 
+            
+                <CartModal/>
+           
             <LoginModal modalFunction={modalData} />
             <div className='bg-gray-900 flex justify-between h-[30px] items-center px-4 '>
-                <Carousel indicators={false} className='w-[60%] mx-auto'>
+                <Carousel leftControl=<FaChevronCircleLeft className='text-white' /> rightControl=<FaChevronCircleRight className='text-white' /> indicators={false} className='w-[60%] mx-auto'>
                     <h5 className='text-white text-center w-[90%] font-semibold text-[13px]'>Enjoy free shipping on orders $99+ and extended returns until January 12th</h5>
                     <h5 className='text-white text-center w-[90%] font-semibold text-[13px]'>Let's share the magic! Frank And Oak's Holiday Shop is here. Explore now</h5>
                     <h5 className='text-white text-center w-[90%] font-semibold text-[13px]'>Brrrrr! Warmth right this way. Sweaters for Women Sweaters for Men</h5>
@@ -48,10 +55,10 @@ export default function Header() {
                         <button onClick={() => setOpenModal(true)}>
                             <FaRegCircleUser className='text-[20px] cursor-pointer' />
                         </button>
-                        <button>
+                        <button onClick={() => setOpenModal(true)}>
                             <CiHeart className='text-[23px] cursor-pointer' />
                         </button>
-                        <button className='flex items-center'>
+                        <button className='flex items-center' onClick={()=>setCartModalSlider(true)}>
                             <IoBagHandleOutline className='text-[20px] cursor-pointer' />
                             <sup className='text-red-800'>0</sup>
                         </button>
