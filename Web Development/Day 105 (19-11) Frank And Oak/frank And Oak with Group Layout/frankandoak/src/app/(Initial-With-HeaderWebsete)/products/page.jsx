@@ -4,6 +4,9 @@ import React, { useState } from 'react'
 import { FaAngleLeft, FaAngleRight, FaGift, FaHeart } from 'react-icons/fa6'
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { RxCross1 } from "react-icons/rx";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+// import Slider from "react-slick";
 
 export default function Products() {
     let [filterDropdown, setFilterDropDown] = useState(-1)
@@ -15,8 +18,8 @@ export default function Products() {
                     <span className='flex gap-2 items-center underline cursor-pointer'>E-Gift Cards <FaGift /></span>
                 </h3>
             </div>
-            <div className='grid grid-cols-[17%_auto] '>
-                <div className='h-screen sticky top-0 left-0'>
+            <div className='grid md:grid-cols-[30%_auto] lg:grid-cols-[20%_auto] '>
+                <aside className='hidden md:block h-screen sticky top-0 left-0'>
                     <div className='pt-5 pl-7 '>
                         <div>
                             <span className='underline cursor-pointer text-sm'>Home</span>
@@ -263,30 +266,18 @@ export default function Products() {
 
                         </div>
                     </div>
-                </div>
+                </aside>
                 <div className='p-4'>
 
                     <div className='grid grid-cols-7 gap-3 py-7'>
-                        <div>
-                            <img src="https://www.frankandoak.com/cdn/shop/files/1410261-002.00_320x.jpg?v=1723473198&width=320" alt="" />
-                            <p className='text-sm py-2'>Jackets</p>
-                        </div>
-                        <div>
-                            <img src="https://www.frankandoak.com/cdn/shop/files/Group_1277_320x.jpg?v=1733944221&width=320" alt="" />
-                            <p className='text-sm py-2'>Tops</p>
-                        </div>
-                        <div>
-                            <img src="https://www.frankandoak.com/cdn/shop/files/Group_1278_320x.jpg?v=1733944221&width=320" alt="" />
-                            <p className='text-sm py-2'>Bottoms</p>
-                        </div>
-                        <div>
-                            <img src="https://www.frankandoak.com/cdn/shop/files/Group_1276_320x.jpg?v=1733944217&width=320" alt="" />
-                            <p className='text-sm py-2'>Blazzers</p>
-                        </div>
-                        <div>
-                            <img src="https://www.frankandoak.com/cdn/shop/files/PLP_thumbnail_image_area_4105d41b-74f0-4031-9812-34eca7605210_320x.jpg?v=1732222669&width=320" alt="" />
-                            <p className='text-sm py-2'>Sweaters</p>
-                        </div>
+                        <TopItems/>
+                        <TopItems/>
+                        <TopItems/>
+                        <TopItems/>
+                        <TopItems/>
+                        <TopItems/>
+                        
+                        
                     </div>
 
                     <div className='py-3 border-t-2 border-b-2 flex justify-between px-2 items-center'>
@@ -379,6 +370,15 @@ function ProductItems() {
                     <p className='text-sm text-gray-500 pt-2'>2 Colours</p>
                 </div>
             </div>
+        </div>
+    )
+}
+
+function TopItems(){
+    return(
+        <div>
+            <img src="https://www.frankandoak.com/cdn/shop/files/1410261-002.00_320x.jpg?v=1723473198&width=320" alt="" />
+            <p className='text-sm py-2'>Jackets</p>
         </div>
     )
 }

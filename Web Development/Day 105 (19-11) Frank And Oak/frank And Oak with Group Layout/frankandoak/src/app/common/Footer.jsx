@@ -6,35 +6,35 @@ import { SlSocialLinkedin } from "react-icons/sl";
 export default function Footer() {
     return (
         <footer className='bg-black text-white px-2 py-8'>
-            <div className='flex justify-around'>
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-5 justify-around'>
                 <div className='flex flex-col items-center'>
                     <img src="https://www.frankandoak.com/cdn/shop/files/shipping-holiday-footer-v1_40x.svg?v=1732296541" alt="" className='py-2' />
-                    <h3>Free Shipping</h3>
-                    <span>On orders over $99</span>
+                    <h3 className='text-[14px] md:text-[16px]' >Free Shipping</h3>
+                    <span className='text-[14px] md:text-[16px]' >On orders over $99</span>
                 </div>
                 <div className='flex flex-col items-center'>
                     <img src="https://www.frankandoak.com/cdn/shop/files/returns-holiday-footer-v1_40x.svg?v=1732296541" alt="" className='py-2' />
-                    <h3>Extended Returns</h3>
-                    <span>until January 12th</span>
+                    <h3 className='text-[14px] md:text-[16px]' >Extended Returns</h3>
+                    <span className='text-[14px] md:text-[16px]' >until January 12th</span>
                 </div>
                 <div className='flex flex-col items-center'>
                     <img src="https://www.frankandoak.com/cdn/shop/files/Group_127_40x.png?v=1726686224" alt="" className='py-2' />
-                    <h3>Frank's Club</h3>
-                    <span>Earn points and get rewards.</span>
+                    <h3 className='text-[14px] md:text-[16px]' >Frank's Club</h3>
+                    <span className='text-[14px] md:text-[16px]' >Earn points and get rewards.</span>
                 </div>
                 <div className='flex flex-col items-center'>
                     <img src="https://www.frankandoak.com/cdn/shop/files/bnpl-holiday-holiday-footer-v1_40x.svg?v=1732296541" alt="" className='py-2' />
-                    <h3>Buy Now, Pay Later</h3>
-                    <span>Select Klarna at checkout.</span>
+                    <h3 className='text-[14px] md:text-[16px]' >Buy Now, Pay Later</h3>
+                    <span className='text-[14px] md:text-[16px]' >Select Klarna at checkout.</span>
                 </div>
             </div>
 
-            <div className='flex justify-around pt-[120px]'>
-                <div>
+            <div className='flex flex-col md:flex-row items-center md:items-start justify-around pt-[50px] md:pt-[120px]'>
+                <div className=''>
                     <div>
                         <img src="https://www.frankandoak.com/cdn/shop/files/Group_127_40x.png?v=1726686224" alt="" className='h-[80px] w-[80px]' />
                     </div>
-                    <div className='flex gap-4 items-center py-4'>
+                    <div className='grid grid-cols-6 md:grid-cols-3 lg:grid-cols-6 gap-4 items-center py-4'>
                         <CiInstagram className='text-[22px] cursor-pointer' />
                         <CiFacebook className='text-[22px] cursor-pointer' />
                         <CiMail className='text-[22px] cursor-pointer' />
@@ -82,7 +82,7 @@ export default function Footer() {
                         <li className='py-2  text-[14px] cursor-pointer'>Customer data requests</li>
                     </ul>
                 </div>
-                <div className='w-[20%]'>
+                <div className='px-4 md:w-[30%]'>
                     <h2 className='font-semibold text-[18px] py-4'>Stay in touch</h2>
                     <p>Join our newsletter and stay in the know about new collections, outfit inspiration, sales, and more.</p>
                     <form action="" className='pt-5'>
@@ -91,15 +91,15 @@ export default function Footer() {
 
                         <h3 className='mt-5'>I shop for</h3>
                         <div className='flex justify-around'>
-                            <div>
+                            <div className='flex items-center gap-2'>
                                 <input type="radio" id='women' name='gender' />
                                 <label htmlFor="women">Women</label>
                             </div>
-                            <div>
+                            <div className='flex items-center gap-2'>
                                 <input type="radio" id='men' name='gender' />
                                 <label htmlFor="men">Men</label>
                             </div>
-                            <div>
+                            <div className='flex items-center gap-2'>
                                 <input type="radio" id='all' name='gender' />
                                 <label htmlFor="all">All</label>
                             </div>
@@ -111,7 +111,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className='w-[80%] mx-auto text-[14px] font-semibold'>
+            <div className='w-[80%] mx-auto text-[14px] text-center md:text-start font-semibold'>
             © Frank And Oak 2024 , All Rights Reserved.
             </div>
         </footer>

@@ -6,7 +6,7 @@ export default function Categories() {
         <div>
             <h1 className='text-[32px]'>Our best categories at their best prices ever</h1>
         </div>
-        <div className='pt-10 grid gap-4 grid-cols-6'>
+        <div className='pt-10 grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-6'>
             <div>
                 <img src="https://www.frankandoak.com/cdn/shop/files/PLP_thumbnail_image_area-1_0ab39a40-c090-4b19-9fa9-ec3c0f2f73eb_900x.jpg?v=1731441344" alt="" />
                

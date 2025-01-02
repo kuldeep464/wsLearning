@@ -6,7 +6,7 @@ export default function WinterJackets() {
             <div className='pb-6'>
                 <h1 className='text-[32px]'>Psst! We even included our best-selling winter jackets</h1>
             </div>
-            <div className='grid gap-4 grid-cols-6'>
+            <div className='grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-6'>
                 <div>
                     <img src="https://www.frankandoak.com/cdn/shop/files/2410207-1FT.02_a100e6f4-cb4e-47d8-81cc-49f99bb12271_900x.jpg?v=1731442289" alt="" />
                     <p className='pt-2'>Shop The Hygge</p>
