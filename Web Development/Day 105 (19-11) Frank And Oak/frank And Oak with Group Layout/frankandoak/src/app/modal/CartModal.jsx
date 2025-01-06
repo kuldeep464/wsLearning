@@ -1,7 +1,6 @@
 'use client'
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { LuMoveLeft } from "react-icons/lu";
-import { cartModalsliderContext } from '../context/cartContext';
 import { RxCross1 } from 'react-icons/rx';
 import { CiHeart } from 'react-icons/ci';
 import { FaChevronDown, FaChevronUp, FaMinus } from 'react-icons/fa6';
@@ -11,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { MdLockOutline } from 'react-icons/md';
 
-export default function CartModal() {
+export default function CartModal({cartModalSlider, setCartModalSlider}) {
     let settings = {
         dots: false,
         infinite: false,
@@ -45,7 +44,7 @@ export default function CartModal() {
             }
         ]
     };
-    let { cartModalSlider, setCartModalSlider } = useContext(cartModalsliderContext)
+  
     return (
         <div className={`h-[100vh] overflow-y-scroll w-[100vw] md:w-[70vw] lg:w-[50vw] bg-white fixed top-0 duration-500  z-20 ${cartModalSlider ? 'right-0' : 'right-[-1000px]'} `}>
             <div className='relative'>

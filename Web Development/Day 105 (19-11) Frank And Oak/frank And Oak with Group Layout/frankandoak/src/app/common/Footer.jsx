@@ -1,7 +1,10 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import { CiFacebook, CiInstagram, CiMail, CiTwitter } from 'react-icons/ci'
 import { FaBitcoin, FaPinterest } from 'react-icons/fa6'
+import { IoMdAdd } from 'react-icons/io';
 import { SlSocialLinkedin } from "react-icons/sl";
+import { FiMinus } from "react-icons/fi";
 
 export default function Footer() {
     return (
@@ -29,8 +32,8 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className='flex flex-col md:flex-row items-center md:items-start justify-around pt-[50px] md:pt-[120px]'>
-                <div className=''>
+            <div className='flex flex-col md:flex-row items-center justify-around pt-[50px] md:pt-[120px]'>
+                <div className=' '>
                     <div>
                         <img src="https://www.frankandoak.com/cdn/shop/files/Group_127_40x.png?v=1726686224" alt="" className='h-[80px] w-[80px]' />
                     </div>
@@ -46,7 +49,7 @@ export default function Footer() {
                         <FaBitcoin className='text-white text-[45px] mt-5' />
                     </div>
                 </div>
-                <div>
+                <div className='hidden md:block'>
                     <h2 className='font-semibold text-[18px] py-4'>About us</h2>
                     <ul>
                         <li className='py-2 text-[14px] cursor-pointer'>Who we are</li>
@@ -57,7 +60,7 @@ export default function Footer() {
                         <li className='py-2  text-[14px] cursor-pointer'>Partners and factories</li>
                     </ul>
                 </div>
-                <div>
+                <div className='hidden md:block'>
                     <h2 className='font-semibold text-[18px] py-4'>Discover</h2>
                     <ul>
                         <li className='py-2 text-[14px] cursor-pointer'>Gift cards</li>
@@ -69,7 +72,7 @@ export default function Footer() {
                         <li className='py-2  text-[14px] cursor-pointer'>Our stores</li>
                     </ul>
                 </div>
-                <div>
+                <div className='hidden md:block'>
                     <h2 className='font-semibold text-[18px] py-4'>Customer Care</h2>
                     <ul>
                         <li className='py-2 text-[14px] cursor-pointer'>Shipping informations</li>
@@ -81,6 +84,9 @@ export default function Footer() {
                         <li className='py-2  text-[14px] cursor-pointer'>Accessibility statement</li>
                         <li className='py-2  text-[14px] cursor-pointer'>Customer data requests</li>
                     </ul>
+                </div>
+                <div className='md:hidden w-[100%]'>
+                    <FooterFaq />
                 </div>
                 <div className='px-4 md:w-[30%]'>
                     <h2 className='font-semibold text-[18px] py-4'>Stay in touch</h2>
@@ -112,8 +118,62 @@ export default function Footer() {
             </div>
 
             <div className='w-[80%] mx-auto text-[14px] text-center md:text-start font-semibold'>
-            © Frank And Oak 2024 , All Rights Reserved.
+                © Frank And Oak 2024 , All Rights Reserved.
             </div>
         </footer>
+    )
+}
+
+
+function FooterFaq() {
+    let [footerFaqOpen, setFooterFaqOpen] = useState(-1)
+    return (
+        <div className='px-4'>
+            <div className='w-[100%] py-1 border-t-2 border-b-2 border-white mt-5'>
+                <h2 className='font-semibold text-[18px] py-4 flex justify-between items-center' onClick={() => footerFaqOpen != 1 ? setFooterFaqOpen(1) : setFooterFaqOpen(-1)}>About us {footerFaqOpen != 1 ? <IoMdAdd /> : <FiMinus />} </h2>
+                {footerFaqOpen != 1 ? '' :
+                    <ul>
+                        <li className='py-2 text-[14px] cursor-pointer'>Who we are</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Sustainable practices</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Design ideology</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Fabrics</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Circular Denim <sup className='text-[8px]'>TM</sup></li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Partners and factories</li>
+                    </ul>
+                }
+
+            </div>
+            <div className='w-[100%] py-1 border-b-2 border-white mt-2'>
+                <h2 className='font-semibold text-[18px] py-4 flex justify-between items-center' onClick={() => footerFaqOpen != 2 ? setFooterFaqOpen(2) : setFooterFaqOpen(-1)}>Discover {footerFaqOpen != 2 ? <IoMdAdd /> : <FiMinus />} </h2>
+                {footerFaqOpen != 2 ? '' :
+                    <ul>
+                        <li className='py-2 text-[14px] cursor-pointer'>Gift cards</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Franks club</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Give $15, Get $15</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Affiliate</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Blog </li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Work with us</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Our stores</li>
+                    </ul>
+                }
+
+            </div>
+            <div className='w-[100%] py-1 border-b-2 border-white mt-2'>
+                <h2 className='font-semibold text-[18px] py-4 flex justify-between items-center' onClick={() => footerFaqOpen != 3 ? setFooterFaqOpen(3) : setFooterFaqOpen(-1)}>Customer Care {footerFaqOpen != 3 ? <IoMdAdd /> : <FiMinus />} </h2>
+                {footerFaqOpen != 3 ? '' :
+                    <ul>
+                        <li className='py-2 text-[14px] cursor-pointer'>Shipping informations</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Return and exchanges</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Coupen codes</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>FAQ</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Terms and conditions <sup className='text-[8px]'>TM</sup></li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Refund policy</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Accessibility statement</li>
+                        <li className='py-2  text-[14px] cursor-pointer'>Customer data requests</li>
+                    </ul>
+                }
+
+            </div>
+        </div>
     )
 }

@@ -11,14 +11,14 @@ export default function SecureCheckOut() {
     return (
         <div>
             <div className=''>
-                <div className='max-w-[1320px]  mx-auto  px-3 py-2 flex justify-between items-center'>
+                <div className='sticky top-0 z-20 bg-white  px-3 py-2 flex justify-between items-center'>
                     <h1 className='text-[35px] font-bold'>Frank And Oak</h1>
                     <IoBagHandleOutline className='text-[30px] cursor-pointer' />
                 </div>
                 <hr className='h-[2px]' />
-                <div className='grid relative grid-cols-2 '>
-                    <div className='flex p-4 justify-end'>
-                        <div className='w-[75%] '>
+                <div className='grid relative md:grid-cols-2 '>
+                    <div className='flex p-4 justify-end order-2 lg:order-1'>
+                        <div className='lg:w-[75%] '>
                             <div>
                                 <p className='text-[13px] text-gray-400 text-center'>Express Checkout</p>
                                 <div className='grid grid-cols-3 gap-5 py-4'>
@@ -280,15 +280,15 @@ export default function SecureCheckOut() {
                             </div>
                         </div>
                     </div>
-                    <div className='bg-gray-100 h-[100vh] sticky overflow-y-scroll top-0 p-5'>
-                        <div className='w-[60%]'>
+                    <div className='bg-gray-100 md:h-[100vh] md:sticky md:overflow-y-scroll md:top-[60px] lg:top-[60px] p-5 order-1 lg:order-2'>
+                        <div className='lg:w-[60%]'>
                             <CartAddedItems />
                             <ShippingProtection />
 
                             <form action="">
-                                <div className='grid grid-cols-[80%_auto] gap-5'>
+                                <div className='grid md:grid-cols-[80%_auto] gap-5'>
                                     <input type="text" placeholder='Discount code or gift card' className='placeholder:text-[13px]' />
-                                    <button className='bg-gray-300 rounded text-[15px] hover:bg-black hover:text-white duration-300'>Apply</button>
+                                    <button className='bg-gray-300 rounded text-[15px] py-2 hover:bg-black hover:text-white duration-300'>Apply</button>
                                 </div>
                             </form>
                             <div className='flex my-4 justify-between items-center'>
