@@ -20,6 +20,7 @@ import StoryDetails from './pages/Components/StoryDetails.jsx'
 import StoryView from './pages/Components/StoryView.jsx'
 import SliderDetails from './pages/Components/SliderDetails.jsx'
 import SliderView from './pages/Components/SliderView.jsx'
+import Orders from './pages/Components/Orders.jsx'
 
 let routes = createBrowserRouter([
   {
@@ -85,6 +86,10 @@ let routes = createBrowserRouter([
       {
         path:'/home/story/story-view',
         element:<StoryView/>
+      },
+      {
+        path:'/home/orders',
+        element:<Orders/>
       },
       {
         path:'/home/slider/slider-details',
