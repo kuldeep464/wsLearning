@@ -1,7 +1,7 @@
 'use client'
-import { deleteFromCart } from '@/app/slice/cartSlice'
+import { changeQtyy, deleteFromCart } from '@/app/slice/cartSlice'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 export default function CartPage() {
@@ -16,11 +16,11 @@ export default function CartPage() {
                         <div className="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
                             <div className="space-y-6">
                                 {mydata.length >= 1 ?
-                                   mydata.map((items,index)=>{
-                                    return(
-                                        <CartItems items={items} key={index} />
-                                    )
-                                   })
+                                    mydata.map((items, index) => {
+                                        return (
+                                            <CartItems items={items} key={index} />
+                                        )
+                                    })
                                     :
                                     <div className='text-red-600'>
                                         No Items in Cart..
@@ -105,8 +105,14 @@ export default function CartPage() {
 
 
 function CartItems({ items }) {
-    let [changeQty, setChangeQty] = useState(1)
-    let dispatch=useDispatch()
+    let [changeValue, setChangeValue] = useState(items.qty)
+
+    let dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(changeQtyy({ id: items.id, qty: changeValue }));
+    }, [changeValue]);
+
     return (
         <div className="rounded-lg border  p-4 shadow-sm border-gray-700 bg-gray-800 md:p-6">
             <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
@@ -117,7 +123,7 @@ function CartItems({ items }) {
                 <label htmlFor="counter-input" className="sr-only">Choose quantity:</label>
                 <div className="flex items-center justify-between md:order-3 md:justify-end">
                     <div className="flex items-center">
-                        {changeQty == 1 ?
+                        {changeValue == 1 ?
                             <button disabled type="button" className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
                                 <svg className="h-2.5 w-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h16" />
@@ -125,26 +131,24 @@ function CartItems({ items }) {
                             </button>
 
                             :
-                            <button onClick={() => setChangeQty(changeQty - 1)} type="button" className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+                            <button onClick={() => setChangeValue(changeValue - 1)} type="button" className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
                                 <svg className="h-2.5 w-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h16" />
                                 </svg>
                             </button>
 
                         }
-
-                        {/* <input type="text" name='quantity' className="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white" placeholder="" defaultValue={changeQty} /> */}
-                        <div className='text-white px-3'>
-                            {changeQty}
+                        <div className='w-10 text-center text-white'>
+                            {changeValue}
                         </div>
-                        <button onClick={() => setChangeQty(changeQty + 1)} type="button" className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+                        <button onClick={() => setChangeValue(changeValue + 1)} type="button" className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
                             <svg className="h-2.5 w-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 1v16M1 9h16" />
                             </svg>
                         </button>
                     </div>
                     <div className="text-end md:order-4 md:w-32">
-                        <p className="text-base font-bold text-gray-900 dark:text-white">$ {items.price}</p>
+                        <p className="text-base font-bold text-gray-900 dark:text-white">$ {(items.qty * items.price).toFixed(2)}</p>
                     </div>
                 </div>
 
@@ -159,7 +163,7 @@ function CartItems({ items }) {
                             Add to Favorites
                         </button>
 
-                        <button onClick={()=>dispatch(deleteFromCart({id:items.id}))} type="button" className="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500">
+                        <button onClick={() => dispatch(deleteFromCart({ id: items.id }))} type="button" className="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500">
                             <svg className="me-1.5 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18 17.94 6M18 18 6.06 6" />
                             </svg>

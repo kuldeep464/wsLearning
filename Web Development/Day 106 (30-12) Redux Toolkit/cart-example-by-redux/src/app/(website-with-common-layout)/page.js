@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteFromCart } from "../slice/cartSlice";
-import { ToastContainer, toast } from 'react-toastify';
+import Swal from "sweetalert2";
+
 
 export default function Home() {
   let [products, setProducts] = useState([])
@@ -58,11 +59,10 @@ function ProductItems({ item, index }) {
       price: item.price
     }
     dispatch(addToCart(obj))
-    // toast.success('Item added to cart')
+   
   }
   return (
     <div className="group relative">
-      <ToastContainer />
       <img src={item.thumbnail} alt="Front of men&#039;s Basic Tee in black." className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
       <div className="mt-4 flex justify-between">
         <div>
