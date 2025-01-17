@@ -1,0 +1,39 @@
+DataBase Show
+
+	-show dbs
+	-show databases
+Create New DB
+	-use mern8pmstudent	
+Create New Collection | Table	
+	-db.createCollection('student')
+Update Collection name
+	-db.student.renameCollection("students")	
+Drop Collection
+	-db.students.drop()		
+
+db.student.insertOne({
+	"name":"deepak",
+	"email":"deepak@gmail.c
+})
+]
+db.student.insertMany(
+[
+	{
+		"name":"demo",
+		"email":"demo@gmail.com"
+	},
+	{
+		"name":"test",
+		"email":"test@gmail.com"
+	}
+]
+)
+
+
+Data Display
+	-db.student.find()  //Multiple ->Array
+
+	-db.student.findOne({"name":"pradeep"})  | Single Data ->Object
+
+Delete
+	-db.student.deleteOne({_id:ObjectId("67892a3bae31918f770c63f9")})
