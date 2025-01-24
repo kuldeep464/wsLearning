@@ -5,3 +5,24 @@
 body {
     font-family: sans-serif;
 }
+
+
+.mainBox:hover .imghoverDiv{
+    width: 0px !important;
+}
+
+.mainBox:hover .quickbtnDiv{
+    z-index: 0;
+}
+
+.quickbtnDiv:hover .mainImage{
+    width: 0px !important;
+}
+
+.quickbtnDiv:hover .quickbtnDivButton{
+    display: none;
+}
+
+.quickbtnDiv:hover>div{
+    display: block !important;
+}

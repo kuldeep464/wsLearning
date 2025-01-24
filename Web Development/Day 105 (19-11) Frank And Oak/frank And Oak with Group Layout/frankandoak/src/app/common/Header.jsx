@@ -18,7 +18,7 @@ export default function Header() {
     let modalData = { openModal, setOpenModal }
     // let mobileMenu={mobileMegaMenuOpen,setMobileMegaMenuOpen}
     return (
-        <header className='sticky top-0 lg:top-[-28px] z-10 bg-white' >
+        <header className='sticky top-0 lg:top-[-28px] z-50 bg-white' >
 
 
             <CartModal cartModalSlider={cartModalSlider} setCartModalSlider={setCartModalSlider} />
