@@ -1,6 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function ProductDetails() {
+    const [productImage, setProductImage] = useState(null);
+    const [imageAnimation, setImageAnimation] = useState(null);
+    const [productGallery, setProductGallery] = useState(null)
+
+    const productimage = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setProductImage(URL.createObjectURL(file));
+        }
+    };
+    const imageanimation = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setImageAnimation(URL.createObjectURL(file));
+        }
+    };
+    const productgallery = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setProductGallery(URL.createObjectURL(file));
+        }
+    };
     return (
         <div>
             <div className='py-3 px-4'>
@@ -27,18 +49,45 @@ export default function ProductDetails() {
                                 <textarea name="shortdescription" id="" className='border-[1px] rounded-lg border-gray-300 resize-none p-2 h-[100px]' placeholder='Add Product Short Description...'></textarea>
                             </div>
 
-                            <div className='py-5 flex flex-col gap-2'>
-                                <label htmlFor="" className='font-semibold'>Product Image</label>
-                                <input type="file" name="productimage" className=" w-full border border-gray-200 shadow-sm rounded-lg text-sm  file:bg-gray-50 file:border-0 file:me-4  file:py-3 file:px-4 " multiple="" />
+                            <div className='py-5 grid items-center gap-6 grid-cols-2'>
+                                <div className='py-5 flex flex-col gap-2'>
+                                    <label htmlFor="" className='font-semibold'>Product Image</label>
+                                    <input type="file" name="categoryFileImage" onChange={productimage} className=" w-full border border-gray-200 shadow-sm rounded-lg text-sm  file:bg-gray-50 file:border-0 file:me-4  file:py-3 file:px-4 " multiple="" />
+                                </div>
+                                {productImage && (
+                                    <img
+                                        src={productImage}
+                                        alt="Preview"
+                                        className=" w-[100px] h-[100px] object-cover rounded-lg shadow-lg"
+                                    />
+                                )}
                             </div>
-                            <div className='py-5 flex flex-col gap-2'>
-                                <label htmlFor="" className='font-semibold'> Image Animation</label>
-                                <input type="file" name="productimageanimation" className=" w-full border border-gray-200 shadow-sm rounded-lg text-sm  file:bg-gray-50 file:border-0 file:me-4  file:py-3 file:px-4 " multiple="" />
+                            <div className='py-5 grid items-center gap-6 grid-cols-2'>
+                                <div className='py-5 flex flex-col gap-2'>
+                                    <label htmlFor="" className='font-semibold'>Image Animation</label>
+                                    <input type="file" name="categoryFileImage" onChange={imageanimation} className=" w-full border border-gray-200 shadow-sm rounded-lg text-sm  file:bg-gray-50 file:border-0 file:me-4  file:py-3 file:px-4 " multiple="" />
+                                </div>
+                                {imageAnimation && (
+                                    <img
+                                        src={imageAnimation}
+                                        alt="Preview"
+                                        className=" w-[100px] h-[100px] object-cover rounded-lg shadow-lg"
+                                    />
+                                )}
                             </div>
 
-                            <div className='py-5 flex flex-col gap-2'>
-                                <label htmlFor="" className='font-semibold'> Product Gallery</label>
-                                <input type="file" name="productgallery" className=" w-full border border-gray-200 shadow-sm rounded-lg text-sm  file:bg-gray-50 file:border-0 file:me-4  file:py-3 file:px-4 " multiple="" />
+                            <div className='py-5 grid items-center gap-6 grid-cols-2'>
+                                <div className='py-5 flex flex-col gap-2'>
+                                    <label htmlFor="" className='font-semibold'>Product Gallery</label>
+                                    <input type="file" name="categoryFileImage" onChange={productgallery} className=" w-full border border-gray-200 shadow-sm rounded-lg text-sm  file:bg-gray-50 file:border-0 file:me-4  file:py-3 file:px-4 " multiple="" />
+                                </div>
+                                {productGallery && (
+                                    <img
+                                        src={productGallery}
+                                        alt="Preview"
+                                        className=" w-[100px] h-[100px] object-cover rounded-lg shadow-lg"
+                                    />
+                                )}
                             </div>
 
                             <div className='grid grid-cols-2 pb-7 gap-6'>

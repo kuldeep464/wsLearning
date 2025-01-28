@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function AddSubCategory() {
+    const [subCatImage, setSubCatImage] = useState(null);
+    
+        const subcatimage = (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                setSubCatImage(URL.createObjectURL(file)); 
+            }
+          };
     return (
         <div>
             <div className='py-3 px-4'>
@@ -22,9 +30,18 @@ export default function AddSubCategory() {
                                 <label htmlFor="" className='font-semibold'>Parent Category Name</label>
                                 <input type="text" name='subparentcategoryName' className='border-[1px] border-gray-300 p-2 rounded-lg' placeholder='Enter Category Name' />
                             </div>
-                            <div className='py-5 flex flex-col gap-2'>
-                                <label htmlFor="" className='font-semibold'>Category Image</label>
-                                <input type="file" name="subcategoryFileImage" className=" w-full border border-gray-200 shadow-sm rounded-lg text-sm  file:bg-gray-50 file:border-0 file:me-4  file:py-3 file:px-4 " multiple="" />
+                            <div className='py-5 grid items-center gap-6 grid-cols-2'>
+                                <div className='py-5 flex flex-col gap-2'>
+                                    <label htmlFor="" className='font-semibold'>Category Image</label>
+                                    <input type="file" name="categoryFileImage" onChange={subcatimage} className=" w-full border border-gray-200 shadow-sm rounded-lg text-sm  file:bg-gray-50 file:border-0 file:me-4  file:py-3 file:px-4 " multiple="" />
+                                </div>
+                                {subCatImage && (
+                                    <img
+                                        src={subCatImage}
+                                        alt="Preview"
+                                        className=" w-[100px] h-[100px] object-cover rounded-lg shadow-lg"
+                                    />
+                                )}
                             </div>
                             <div className='mb-5 flex flex-col gap-2'>
                                 <label htmlFor="" className='font-semibold'>Category Description</label>

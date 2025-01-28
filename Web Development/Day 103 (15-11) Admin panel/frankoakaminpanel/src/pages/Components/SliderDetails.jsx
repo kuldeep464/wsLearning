@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function SliderDetails() {
+     let [sliderImage, setSliderImage] = useState(null)
+        const sliderimage = (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                setSliderImage(URL.createObjectURL(file));
+            }
+        };
     return (
         <div>
             <div className='py-3 px-4'>
@@ -26,9 +33,18 @@ export default function SliderDetails() {
                                 <label htmlFor="" className='font-semibold'>Sub Heading</label>
                                 <input type="text" name='slidersubheading' className='border-[1px] border-gray-300 p-2 rounded-lg' placeholder='Sub Heading' />
                             </div>
-                            <div className='py-5 flex flex-col gap-2'>
-                                <label htmlFor="" className='font-semibold'>Slider Images</label>
-                                <input type="file" name="sliderimages" className=" w-full border border-gray-200 shadow-sm rounded-lg text-sm  file:bg-gray-50 file:border-0 file:me-4  file:py-3 file:px-4 " multiple="" />
+                            <div className='py-5 grid items-center gap-6 grid-cols-2'>
+                                <div className='py-5 flex flex-col gap-2'>
+                                    <label htmlFor="" className='font-semibold'>Slider Image</label>
+                                    <input type="file" name="categoryFileImage" onChange={sliderimage} className=" w-full border border-gray-200 shadow-sm rounded-lg text-sm  file:bg-gray-50 file:border-0 file:me-4  file:py-3 file:px-4 " multiple="" />
+                                </div>
+                                {sliderImage && (
+                                    <img
+                                        src={sliderImage}
+                                        alt="Preview"
+                                        className=" w-[100px] h-[100px] object-cover rounded-lg shadow-lg"
+                                    />
+                                )}
                             </div>
                            
 
