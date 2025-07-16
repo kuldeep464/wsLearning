@@ -1,0 +1,12 @@
+.max-h-\[90dvh\] {
+    height: 70vh;
+    width: 90vw;
+    margin: auto;
+    position: absolute;
+    right: -55%;
+    top: -250px;
+}
+
+::-webkit-scrollbar {
+    width: 30px;
+}

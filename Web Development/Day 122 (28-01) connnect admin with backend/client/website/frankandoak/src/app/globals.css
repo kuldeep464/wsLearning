@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: sans-serif;
+}
+
+
+.mainBox:hover .imghoverDiv {
+    width: 0px !important;
+}
+
+
+.mainBox:hover .quickbtnDiv {
+    z-index: 0;
+}
+
+.quickbtnDiv:hover .mainImage {
+    width: 0px !important;
+}
+
+.quickbtnDiv:hover .quickbtnDivButton {
+    display: none;
+}
+
+.quickbtnDiv:hover>div {
+    display: block !important;
+}
+
+.mainBox:hover .colorDiv>p {
+    display: none;
+}
+
+.mainBox:hover .colorDiv>p {
+    display: none;
+}
+
+.mainBox:hover .colorDiv>div {
+    display: block !important;
+}
+
+.slick-prev {
+    background-color: black !important;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.slick-next {
+    background-color: black !important;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.slick-disabled {
+    opacity: 0 !important;
+}

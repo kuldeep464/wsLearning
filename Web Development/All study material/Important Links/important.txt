@@ -1,0 +1,3 @@
+mongodbAtlas cluster string :- mongodb+srv://kuldeeppoonia464:Kuldeep123@kuldeep.hzm8f9c.mongodb.net/${dataBase_Name}?retryWrites=true&w=majority&appName=kuldeep
+
+mongodbAtlas username and Password :- kuldeeppoonia464 and Kuldeep123
